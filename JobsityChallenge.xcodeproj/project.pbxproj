@@ -10,13 +10,13 @@
 		44F197BC28D61D99001E9635 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F197BB28D61D99001E9635 /* AppDelegate.swift */; };
 		44F197BE28D61D99001E9635 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F197BD28D61D99001E9635 /* SceneDelegate.swift */; };
 		44F197C028D61D99001E9635 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F197BF28D61D99001E9635 /* ViewController.swift */; };
-		44F197C328D61D99001E9635 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44F197C128D61D99001E9635 /* Main.storyboard */; };
 		44F197C628D61D99001E9635 /* JobsityChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44F197C428D61D99001E9635 /* JobsityChallenge.xcdatamodeld */; };
 		44F197C828D61D99001E9635 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44F197C728D61D99001E9635 /* Assets.xcassets */; };
 		44F197CB28D61D99001E9635 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44F197C928D61D99001E9635 /* LaunchScreen.storyboard */; };
 		44F197D628D61D9A001E9635 /* JobsityChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F197D528D61D9A001E9635 /* JobsityChallengeTests.swift */; };
 		44F197E028D61D9A001E9635 /* JobsityChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F197DF28D61D9A001E9635 /* JobsityChallengeUITests.swift */; };
 		44F197E228D61D9A001E9635 /* JobsityChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F197E128D61D9A001E9635 /* JobsityChallengeUITestsLaunchTests.swift */; };
+		44F197F328D61E0A001E9635 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F197F228D61E0A001E9635 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +41,6 @@
 		44F197BB28D61D99001E9635 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44F197BD28D61D99001E9635 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		44F197BF28D61D99001E9635 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		44F197C228D61D99001E9635 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44F197C528D61D99001E9635 /* JobsityChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JobsityChallenge.xcdatamodel; sourceTree = "<group>"; };
 		44F197C728D61D99001E9635 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44F197CA28D61D99001E9635 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		44F197DB28D61D9A001E9635 /* JobsityChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JobsityChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44F197DF28D61D9A001E9635 /* JobsityChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsityChallengeUITests.swift; sourceTree = "<group>"; };
 		44F197E128D61D9A001E9635 /* JobsityChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsityChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		44F197F228D61E0A001E9635 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +101,9 @@
 		44F197BA28D61D99001E9635 /* JobsityChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				44F197EE28D61DDE001E9635 /* source */,
 				44F197BB28D61D99001E9635 /* AppDelegate.swift */,
 				44F197BD28D61D99001E9635 /* SceneDelegate.swift */,
-				44F197BF28D61D99001E9635 /* ViewController.swift */,
-				44F197C128D61D99001E9635 /* Main.storyboard */,
 				44F197C728D61D99001E9635 /* Assets.xcassets */,
 				44F197C928D61D99001E9635 /* LaunchScreen.storyboard */,
 				44F197CC28D61D99001E9635 /* Info.plist */,
@@ -128,6 +127,31 @@
 				44F197E128D61D9A001E9635 /* JobsityChallengeUITestsLaunchTests.swift */,
 			);
 			path = JobsityChallengeUITests;
+			sourceTree = "<group>";
+		};
+		44F197EE28D61DDE001E9635 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				44F197EF28D61DE5001E9635 /* presentation */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		44F197EF28D61DE5001E9635 /* presentation */ = {
+			isa = PBXGroup;
+			children = (
+				44F197F128D61E00001E9635 /* coordinator */,
+				44F197BF28D61D99001E9635 /* ViewController.swift */,
+			);
+			path = presentation;
+			sourceTree = "<group>";
+		};
+		44F197F128D61E00001E9635 /* coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				44F197F228D61E0A001E9635 /* Coordinator.swift */,
+			);
+			path = coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,7 +260,6 @@
 			files = (
 				44F197CB28D61D99001E9635 /* LaunchScreen.storyboard in Resources */,
 				44F197C828D61D99001E9635 /* Assets.xcassets in Resources */,
-				44F197C328D61D99001E9635 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +286,7 @@
 			files = (
 				44F197C628D61D99001E9635 /* JobsityChallenge.xcdatamodeld in Sources */,
 				44F197C028D61D99001E9635 /* ViewController.swift in Sources */,
+				44F197F328D61E0A001E9635 /* Coordinator.swift in Sources */,
 				44F197BC28D61D99001E9635 /* AppDelegate.swift in Sources */,
 				44F197BE28D61D99001E9635 /* SceneDelegate.swift in Sources */,
 			);
@@ -301,14 +325,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		44F197C128D61D99001E9635 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				44F197C228D61D99001E9635 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		44F197C928D61D99001E9635 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -447,7 +463,7 @@
 				INFOPLIST_FILE = JobsityChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -474,7 +490,7 @@
 				INFOPLIST_FILE = JobsityChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
