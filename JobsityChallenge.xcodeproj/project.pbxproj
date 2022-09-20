@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		447837C228DA29E400C519AE /* ToggleSerieAsFavoriteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447837C128DA29E400C519AE /* ToggleSerieAsFavoriteUseCase.swift */; };
+		447837C428DA29F100C519AE /* ToggleSerieAsFavoriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447837C328DA29F100C519AE /* ToggleSerieAsFavoriteRepository.swift */; };
+		447837C628DA29FB00C519AE /* DefaultToggleSerieAsFavoriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447837C528DA29FB00C519AE /* DefaultToggleSerieAsFavoriteRepository.swift */; };
 		4488E1C728DA17AD005E32F0 /* RouterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4488E1C628DA17AD005E32F0 /* RouterFactory.swift */; };
 		4488E1C928DA1818005E32F0 /* EpisodeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4488E1C828DA1818005E32F0 /* EpisodeRouter.swift */; };
 		4488E1CB28DA1BB7005E32F0 /* PersonRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4488E1CA28DA1BB7005E32F0 /* PersonRouter.swift */; };
@@ -55,6 +58,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		447837C128DA29E400C519AE /* ToggleSerieAsFavoriteUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleSerieAsFavoriteUseCase.swift; sourceTree = "<group>"; };
+		447837C328DA29F100C519AE /* ToggleSerieAsFavoriteRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleSerieAsFavoriteRepository.swift; sourceTree = "<group>"; };
+		447837C528DA29FB00C519AE /* DefaultToggleSerieAsFavoriteRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultToggleSerieAsFavoriteRepository.swift; sourceTree = "<group>"; };
 		4488E1C628DA17AD005E32F0 /* RouterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterFactory.swift; sourceTree = "<group>"; };
 		4488E1C828DA1818005E32F0 /* EpisodeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRouter.swift; sourceTree = "<group>"; };
 		4488E1CA28DA1BB7005E32F0 /* PersonRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonRouter.swift; sourceTree = "<group>"; };
@@ -206,6 +212,7 @@
 		44F197F528D621F8001E9635 /* useCases */ = {
 			isa = PBXGroup;
 			children = (
+				447837C128DA29E400C519AE /* ToggleSerieAsFavoriteUseCase.swift */,
 				44F197F628D6220A001E9635 /* FetchEntityUseCase.swift */,
 				44F197F828D6221A001E9635 /* UseCase.swift */,
 			);
@@ -223,6 +230,7 @@
 		44F1980028D622D8001E9635 /* repositories */ = {
 			isa = PBXGroup;
 			children = (
+				447837C328DA29F100C519AE /* ToggleSerieAsFavoriteRepository.swift */,
 				44F1980128D622EB001E9635 /* FetchEntityRepository.swift */,
 				44F1980328D626F3001E9635 /* RepositoryError.swift */,
 			);
@@ -258,6 +266,7 @@
 		44F1981128D63306001E9635 /* network */ = {
 			isa = PBXGroup;
 			children = (
+				447837C528DA29FB00C519AE /* DefaultToggleSerieAsFavoriteRepository.swift */,
 				4488E1C628DA17AD005E32F0 /* RouterFactory.swift */,
 				44F1981A28D63741001E9635 /* routers */,
 				44F1981728D6371C001E9635 /* utils */,
@@ -433,6 +442,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				447837C228DA29E400C519AE /* ToggleSerieAsFavoriteUseCase.swift in Sources */,
 				44F1981328D6331E001E9635 /* EntityRepository.swift in Sources */,
 				44F197C628D61D99001E9635 /* JobsityChallenge.xcdatamodeld in Sources */,
 				44F197F728D6220A001E9635 /* FetchEntityUseCase.swift in Sources */,
@@ -441,6 +451,7 @@
 				44F197F328D61E0A001E9635 /* Coordinator.swift in Sources */,
 				4488E1CD28DA1D67005E32F0 /* Router.swift in Sources */,
 				44F1980428D626F3001E9635 /* RepositoryError.swift in Sources */,
+				447837C428DA29F100C519AE /* ToggleSerieAsFavoriteRepository.swift in Sources */,
 				4488E1C728DA17AD005E32F0 /* RouterFactory.swift in Sources */,
 				44F197FF28D62290001E9635 /* Serie.swift in Sources */,
 				4488E1CB28DA1BB7005E32F0 /* PersonRouter.swift in Sources */,
@@ -449,6 +460,7 @@
 				44F1981C28D6374D001E9635 /* SerieRouter.swift in Sources */,
 				44F197BC28D61D99001E9635 /* AppDelegate.swift in Sources */,
 				44F1981928D63725001E9635 /* HTTPMethod.swift in Sources */,
+				447837C628DA29FB00C519AE /* DefaultToggleSerieAsFavoriteRepository.swift in Sources */,
 				44F1980228D622EB001E9635 /* FetchEntityRepository.swift in Sources */,
 				4488E1C928DA1818005E32F0 /* EpisodeRouter.swift in Sources */,
 				44F197BE28D61D99001E9635 /* SceneDelegate.swift in Sources */,
