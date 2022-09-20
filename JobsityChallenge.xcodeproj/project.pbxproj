@@ -10,6 +10,7 @@
 		447837C228DA29E400C519AE /* ToggleSerieAsFavoriteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447837C128DA29E400C519AE /* ToggleSerieAsFavoriteUseCase.swift */; };
 		447837C428DA29F100C519AE /* ToggleSerieAsFavoriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447837C328DA29F100C519AE /* ToggleSerieAsFavoriteRepository.swift */; };
 		447837C628DA29FB00C519AE /* DefaultToggleSerieAsFavoriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447837C528DA29FB00C519AE /* DefaultToggleSerieAsFavoriteRepository.swift */; };
+		447837E328DA329600C519AE /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447837E228DA329600C519AE /* LocalStorage.swift */; };
 		4488E1C728DA17AD005E32F0 /* RouterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4488E1C628DA17AD005E32F0 /* RouterFactory.swift */; };
 		4488E1C928DA1818005E32F0 /* EpisodeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4488E1C828DA1818005E32F0 /* EpisodeRouter.swift */; };
 		4488E1CB28DA1BB7005E32F0 /* PersonRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4488E1CA28DA1BB7005E32F0 /* PersonRouter.swift */; };
@@ -17,7 +18,6 @@
 		44F197BC28D61D99001E9635 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F197BB28D61D99001E9635 /* AppDelegate.swift */; };
 		44F197BE28D61D99001E9635 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F197BD28D61D99001E9635 /* SceneDelegate.swift */; };
 		44F197C028D61D99001E9635 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F197BF28D61D99001E9635 /* ViewController.swift */; };
-		44F197C628D61D99001E9635 /* JobsityChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44F197C428D61D99001E9635 /* JobsityChallenge.xcdatamodeld */; };
 		44F197C828D61D99001E9635 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44F197C728D61D99001E9635 /* Assets.xcassets */; };
 		44F197CB28D61D99001E9635 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44F197C928D61D99001E9635 /* LaunchScreen.storyboard */; };
 		44F197D628D61D9A001E9635 /* JobsityChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F197D528D61D9A001E9635 /* JobsityChallengeTests.swift */; };
@@ -61,6 +61,7 @@
 		447837C128DA29E400C519AE /* ToggleSerieAsFavoriteUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleSerieAsFavoriteUseCase.swift; sourceTree = "<group>"; };
 		447837C328DA29F100C519AE /* ToggleSerieAsFavoriteRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleSerieAsFavoriteRepository.swift; sourceTree = "<group>"; };
 		447837C528DA29FB00C519AE /* DefaultToggleSerieAsFavoriteRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultToggleSerieAsFavoriteRepository.swift; sourceTree = "<group>"; };
+		447837E228DA329600C519AE /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		4488E1C628DA17AD005E32F0 /* RouterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterFactory.swift; sourceTree = "<group>"; };
 		4488E1C828DA1818005E32F0 /* EpisodeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRouter.swift; sourceTree = "<group>"; };
 		4488E1CA28DA1BB7005E32F0 /* PersonRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonRouter.swift; sourceTree = "<group>"; };
@@ -69,7 +70,6 @@
 		44F197BB28D61D99001E9635 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44F197BD28D61D99001E9635 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		44F197BF28D61D99001E9635 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		44F197C528D61D99001E9635 /* JobsityChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JobsityChallenge.xcdatamodel; sourceTree = "<group>"; };
 		44F197C728D61D99001E9635 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44F197CA28D61D99001E9635 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44F197CC28D61D99001E9635 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,6 +119,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		447837E128DA328300C519AE /* localStorage */ = {
+			isa = PBXGroup;
+			children = (
+				447837E228DA329600C519AE /* LocalStorage.swift */,
+			);
+			path = localStorage;
+			sourceTree = "<group>";
+		};
+		447837E428DA368B00C519AE /* repositories */ = {
+			isa = PBXGroup;
+			children = (
+				44F1981228D6331D001E9635 /* EntityRepository.swift */,
+				447837C528DA29FB00C519AE /* DefaultToggleSerieAsFavoriteRepository.swift */,
+			);
+			path = repositories;
+			sourceTree = "<group>";
+		};
 		44F197AF28D61D99001E9635 = {
 			isa = PBXGroup;
 			children = (
@@ -143,12 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				44F197EE28D61DDE001E9635 /* source */,
-				44F197BB28D61D99001E9635 /* AppDelegate.swift */,
-				44F197BD28D61D99001E9635 /* SceneDelegate.swift */,
-				44F197C728D61D99001E9635 /* Assets.xcassets */,
-				44F197C928D61D99001E9635 /* LaunchScreen.storyboard */,
 				44F197CC28D61D99001E9635 /* Info.plist */,
-				44F197C428D61D99001E9635 /* JobsityChallenge.xcdatamodeld */,
 			);
 			path = JobsityChallenge;
 			sourceTree = "<group>";
@@ -174,6 +186,7 @@
 		44F197EE28D61DDE001E9635 /* source */ = {
 			isa = PBXGroup;
 			children = (
+				447837E128DA328300C519AE /* localStorage */,
 				44F1981D28D637AA001E9635 /* infrastructure */,
 				44F1981128D63306001E9635 /* network */,
 				44F197F428D621ED001E9635 /* domain */,
@@ -185,6 +198,10 @@
 		44F197EF28D61DE5001E9635 /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				44F197C928D61D99001E9635 /* LaunchScreen.storyboard */,
+				44F197C728D61D99001E9635 /* Assets.xcassets */,
+				44F197BB28D61D99001E9635 /* AppDelegate.swift */,
+				44F197BD28D61D99001E9635 /* SceneDelegate.swift */,
 				44F197F128D61E00001E9635 /* coordinator */,
 				44F197BF28D61D99001E9635 /* ViewController.swift */,
 			);
@@ -266,12 +283,10 @@
 		44F1981128D63306001E9635 /* network */ = {
 			isa = PBXGroup;
 			children = (
-				447837C528DA29FB00C519AE /* DefaultToggleSerieAsFavoriteRepository.swift */,
-				4488E1C628DA17AD005E32F0 /* RouterFactory.swift */,
+				447837E428DA368B00C519AE /* repositories */,
 				44F1981A28D63741001E9635 /* routers */,
 				44F1981728D6371C001E9635 /* utils */,
 				44F1981428D636A1001E9635 /* extension */,
-				44F1981228D6331D001E9635 /* EntityRepository.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -295,6 +310,7 @@
 		44F1981A28D63741001E9635 /* routers */ = {
 			isa = PBXGroup;
 			children = (
+				4488E1C628DA17AD005E32F0 /* RouterFactory.swift */,
 				44F1981B28D6374D001E9635 /* SerieRouter.swift */,
 				4488E1C828DA1818005E32F0 /* EpisodeRouter.swift */,
 				4488E1CA28DA1BB7005E32F0 /* PersonRouter.swift */,
@@ -444,7 +460,6 @@
 			files = (
 				447837C228DA29E400C519AE /* ToggleSerieAsFavoriteUseCase.swift in Sources */,
 				44F1981328D6331E001E9635 /* EntityRepository.swift in Sources */,
-				44F197C628D61D99001E9635 /* JobsityChallenge.xcdatamodeld in Sources */,
 				44F197F728D6220A001E9635 /* FetchEntityUseCase.swift in Sources */,
 				44F1981628D636B4001E9635 /* URL+appendQueryItem.swift in Sources */,
 				44F197C028D61D99001E9635 /* ViewController.swift in Sources */,
@@ -452,6 +467,7 @@
 				4488E1CD28DA1D67005E32F0 /* Router.swift in Sources */,
 				44F1980428D626F3001E9635 /* RepositoryError.swift in Sources */,
 				447837C428DA29F100C519AE /* ToggleSerieAsFavoriteRepository.swift in Sources */,
+				447837E328DA329600C519AE /* LocalStorage.swift in Sources */,
 				4488E1C728DA17AD005E32F0 /* RouterFactory.swift in Sources */,
 				44F197FF28D62290001E9635 /* Serie.swift in Sources */,
 				4488E1CB28DA1BB7005E32F0 /* PersonRouter.swift in Sources */,
@@ -816,19 +832,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		44F197C428D61D99001E9635 /* JobsityChallenge.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				44F197C528D61D99001E9635 /* JobsityChallenge.xcdatamodel */,
-			);
-			currentVersion = 44F197C528D61D99001E9635 /* JobsityChallenge.xcdatamodel */;
-			path = JobsityChallenge.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 44F197B028D61D99001E9635 /* Project object */;
 }

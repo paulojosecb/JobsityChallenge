@@ -9,7 +9,7 @@ import Foundation
 
 protocol Entity: Codable {}
 
-struct Serie: Entity, Codable {
+struct Serie: Entity, Codable, Equatable {
     let id: Int
     let url: String?
     let name: String?
@@ -20,6 +20,10 @@ struct Serie: Entity, Codable {
     let rating: Rating
     let image: Image?
     let summary: String?
+    
+    static func == (lhs: Serie, rhs: Serie) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
 
 struct Rating: Codable {

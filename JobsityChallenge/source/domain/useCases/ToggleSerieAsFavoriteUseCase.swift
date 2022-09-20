@@ -12,7 +12,7 @@ final class ToggleSerieAsFavoriteUseCase: UseCase {
     let repository: ToggleSerieAsFavoriteRepository
     
     struct Request {
-        let seriesId: Int
+        let serie: Serie
     }
     
     struct Response {

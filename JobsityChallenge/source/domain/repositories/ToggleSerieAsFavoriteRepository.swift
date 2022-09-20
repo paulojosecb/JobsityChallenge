@@ -9,4 +9,5 @@ import Foundation
 
 protocol ToggleSerieAsFavoriteRepository {
     func toggle(_ request: ToggleSerieAsFavoriteUseCase.Request, completion: @escaping (Result<Bool, RepositoryError>) -> ())
+    func fetchServices(completion: @escaping (Result<[Serie], RepositoryError>) -> ())
 }
