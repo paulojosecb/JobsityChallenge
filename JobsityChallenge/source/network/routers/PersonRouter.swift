@@ -1,18 +1,16 @@
 //
-//  SeriesRouter.swift
+//  PersonRouter.swift
 //  JobsityChallenge
 //
-//  Created by Paulo Barbosa on 17/09/22.
+//  Created by Paulo Barbosa on 20/09/22.
 //
 
 import Foundation
 
-internal enum SeriesRouter {
-    
-    case paged(Int)
-    case all
-    case byName(String)
+internal enum PersonRouter: Router {
     case byId(Int)
+    case byName(String)
+    case credits(Int)
 
     internal static let baseUrl = "https://api.tvmaze.com/"
 
@@ -26,25 +24,27 @@ internal enum SeriesRouter {
     fileprivate var path: String {
         switch self {
         case .byId(let id):
-            return "shows/\(id)"
+            return "people/\(id)"
+        case .credits(let id):
+            return "people/\(id)/castcredits"
         default:
-            return "shows"
+            return "people"
         }
     }
     
     fileprivate var queryItems: [URLQueryItem] {
         switch self {
-        case .paged(let page):
-            return [URLQueryItem(name: "page", value: "\(page)")]
         case .byName(let name):
             return [URLQueryItem(name: "q", value: name)]
+        case .credits(_):
+            return [URLQueryItem(name: "embed", value: "show")]
         default:
             return []
         }
     }
     
-    internal func asURLRequest() throws -> URLRequest? {
-        guard let url = URL(string: SeriesRouter.baseUrl)?.appending(queryItems) else {
+    internal func asURLRequest() -> URLRequest? {
+        guard let url = URL(string: PersonRouter.baseUrl)?.appending(queryItems) else {
             return nil
         }
         

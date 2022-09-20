@@ -13,11 +13,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .green
         
-        let useCase = FetchSeriesUseCase()
-        useCase.exec(request: .init(type: .paged(1))) { result in
+        let useCase = FetchEntityUseCase<[PersonCastCredits]>()
+        useCase.exec(request: .init(type: .person(.credits(1)))) { result in
             switch result {
             case .success(let response):
-                print(response.series)
+                print(response.entities)
             case .failure(_):
                 break
             }

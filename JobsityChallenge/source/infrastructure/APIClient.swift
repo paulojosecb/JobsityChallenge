@@ -8,7 +8,7 @@
 import Foundation
 
 protocol APIClient {
-    func requestJSON<T: Decodable>(urlRequest: URLRequest, completion: @escaping (Result<T, RequestError>) -> Void)
+    func requestJSON<T: Codable>(urlRequest: URLRequest, completion: @escaping (Result<T, RequestError>) -> Void)
 }
 
 public struct ErrorResult: Codable {
@@ -50,7 +50,7 @@ final class DefaultApiClient: APIClient {
     let defaultSession = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask?
 
-    func requestJSON<T>(urlRequest: URLRequest, completion: @escaping (Result<T, RequestError>) -> Void) where T : Decodable {
+    func requestJSON<T: Codable>(urlRequest: URLRequest, completion: @escaping (Result<T, RequestError>) -> Void) {
         
         request(urlRequest: urlRequest) { result in
             switch result {
