@@ -9,7 +9,7 @@ import Foundation
 
 final class ToggleSerieAsFavoriteUseCase: UseCase {
     
-    let repository: ToggleSerieAsFavoriteRepository
+    private let repository: ToggleSerieAsFavoriteRepository
     
     struct Request {
         let serie: Serie

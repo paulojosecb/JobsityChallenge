@@ -2,10 +2,13 @@ import UIKit
 
 protocol Coordinator: AnyObject {
     func presentRootScreen(with scene: UIWindowScene)
-    func start()
+    func start(isPinEnabled: Bool)
+    
+    func presentHomeScreenFromLock()
 }
 
 class MainCoordinator: Coordinator {
+
     static let shared = MainCoordinator()
     var rootViewController: UIViewController?
     
@@ -21,14 +24,20 @@ class MainCoordinator: Coordinator {
         self.navigationController = UINavigationController()
     }
     
-    func start() {
-        self.rootViewController = ViewController()
+    func start(isPinEnabled: Bool) {
+        self.rootViewController = isPinEnabled ? LockViewController(coordinator: self) : ViewController()
         navigationController.viewControllers = [self.rootViewController!]
     }
     
     func presentRootScreen(with scene: UIWindowScene) {
         window.rootViewController = navigationController
         window.windowScene = scene
+    }
+    
+    func presentHomeScreenFromLock() {
+        let viewController = ViewController()
+        viewController.modalPresentationStyle = .fullScreen
+        navigationController.present(viewController, animated: true, completion: nil)
     }
 
 }

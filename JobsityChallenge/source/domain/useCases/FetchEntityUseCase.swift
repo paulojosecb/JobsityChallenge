@@ -25,7 +25,7 @@ enum FetchEntityError: Error {
 
 final class FetchEntityUseCase<T: Codable>: UseCase {
     
-    let repository: FetchEntityRepository
+    private let repository: FetchEntityRepository
     
     enum RequestType {
         case serie(SerieRequestType)

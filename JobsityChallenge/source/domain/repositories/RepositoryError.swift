@@ -13,3 +13,9 @@ enum RepositoryError: Error {
     case parse
     case notFound
 }
+
+enum AuthenticationRepositoryError: Error {
+    case wrongPin
+    case localAuthUnavailable
+    case unknown
+}

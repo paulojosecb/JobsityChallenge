@@ -10,12 +10,15 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    
+    let keychainStorage = DefaultKeychainStorage()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = scene as? UIWindowScene else { return }
-        MainCoordinator.shared.start()
+        
+        MainCoordinator.shared.start(isPinEnabled: keychainStorage.isPinEnabled)
         MainCoordinator.shared.presentRootScreen(with: scene)
+
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
