@@ -28,7 +28,7 @@ final class FetchSeriesUseCase: UseCase {
     let repository: FetchSeriesRepository
     
     enum RequestType {
-        case page(Int)
+        case paged(Int)
         case byName(String)
         case byId(Int)
         case all
@@ -42,7 +42,7 @@ final class FetchSeriesUseCase: UseCase {
         let series: [Serie]
     }
     
-    init(repository: FetchSeriesRepository) {
+    init(repository: FetchSeriesRepository = SeriesRepository()) {
         self.repository = repository
     }
     
