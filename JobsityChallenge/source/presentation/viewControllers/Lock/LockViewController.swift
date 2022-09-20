@@ -14,12 +14,14 @@ final class LockViewController: UIViewController {
         case invalidPin
     }
     
+    let lockView: LockView
     let presenter: LockPresenter
     let coordinator: Coordinator
         
     init(coordinator: Coordinator, presenter: LockPresenter = DefaultLockPresenter()) {
         self.coordinator = coordinator
         self.presenter = presenter
+        self.lockView = LockView()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -53,7 +55,9 @@ final class LockViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view = lockView
+        lockView.delegate = self
+        lockView.setupViews()
         
         self.presenter.presentLocalAuthIfAvailable { result in
             switch result {
@@ -98,4 +102,10 @@ final class LockViewController: UIViewController {
         self.present(errorAlertController, animated: true, completion: nil)
     }
     
+}
+
+extension LockViewController: LockViewDelegate {
+    func didPressShowPinButton() {
+        self.present(createInputAlertController, animated: true, completion: nil)
+    }
 }

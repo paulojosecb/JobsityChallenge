@@ -19,6 +19,10 @@
 		447837F628DA71B000C519AE /* AuthenticationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447837F528DA71B000C519AE /* AuthenticationUseCase.swift */; };
 		447837F828DA728900C519AE /* AuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447837F728DA728900C519AE /* AuthenticationRepository.swift */; };
 		447837FA28DA741400C519AE /* DefaultAuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447837F928DA741400C519AE /* DefaultAuthenticationRepository.swift */; };
+		447837FE28DA7A5300C519AE /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447837FD28DA7A5300C519AE /* LockView.swift */; };
+		4478380028DA7A7000C519AE /* CodableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447837FF28DA7A7000C519AE /* CodableView.swift */; };
+		4478380328DA7B0600C519AE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4478380228DA7B0600C519AE /* SnapKit */; };
+		4478380528DA7E0900C519AE /* AnimatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4478380428DA7E0900C519AE /* AnimatedButton.swift */; };
 		4488E1C728DA17AD005E32F0 /* RouterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4488E1C628DA17AD005E32F0 /* RouterFactory.swift */; };
 		4488E1C928DA1818005E32F0 /* EpisodeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4488E1C828DA1818005E32F0 /* EpisodeRouter.swift */; };
 		4488E1CB28DA1BB7005E32F0 /* PersonRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4488E1CA28DA1BB7005E32F0 /* PersonRouter.swift */; };
@@ -78,6 +82,9 @@
 		447837F528DA71B000C519AE /* AuthenticationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUseCase.swift; sourceTree = "<group>"; };
 		447837F728DA728900C519AE /* AuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepository.swift; sourceTree = "<group>"; };
 		447837F928DA741400C519AE /* DefaultAuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthenticationRepository.swift; sourceTree = "<group>"; };
+		447837FD28DA7A5300C519AE /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
+		447837FF28DA7A7000C519AE /* CodableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableView.swift; sourceTree = "<group>"; };
+		4478380428DA7E0900C519AE /* AnimatedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedButton.swift; sourceTree = "<group>"; };
 		4488E1C628DA17AD005E32F0 /* RouterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterFactory.swift; sourceTree = "<group>"; };
 		4488E1C828DA1818005E32F0 /* EpisodeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRouter.swift; sourceTree = "<group>"; };
 		4488E1CA28DA1BB7005E32F0 /* PersonRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonRouter.swift; sourceTree = "<group>"; };
@@ -115,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4478380328DA7B0600C519AE /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +182,7 @@
 			children = (
 				447837EA28DA5EFA00C519AE /* LockViewController.swift */,
 				447837ED28DA5F3400C519AE /* LockPresenter.swift */,
+				447837FD28DA7A5300C519AE /* LockView.swift */,
 			);
 			path = Lock;
 			sourceTree = "<group>";
@@ -182,6 +191,8 @@
 			isa = PBXGroup;
 			children = (
 				447837F028DA60B800C519AE /* UIAlertController+createInputAlertController.swift */,
+				447837FF28DA7A7000C519AE /* CodableView.swift */,
+				4478380428DA7E0900C519AE /* AnimatedButton.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -407,6 +418,9 @@
 			dependencies = (
 			);
 			name = JobsityChallenge;
+			packageProductDependencies = (
+				4478380228DA7B0600C519AE /* SnapKit */,
+			);
 			productName = JobsityChallenge;
 			productReference = 44F197B828D61D99001E9635 /* JobsityChallenge.app */;
 			productType = "com.apple.product-type.application";
@@ -479,6 +493,9 @@
 				Base,
 			);
 			mainGroup = 44F197AF28D61D99001E9635;
+			packageReferences = (
+				4478380128DA7B0600C519AE /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 44F197B928D61D99001E9635 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -526,6 +543,7 @@
 				447837F828DA728900C519AE /* AuthenticationRepository.swift in Sources */,
 				44F1981328D6331E001E9635 /* EntityRepository.swift in Sources */,
 				447837FA28DA741400C519AE /* DefaultAuthenticationRepository.swift in Sources */,
+				4478380528DA7E0900C519AE /* AnimatedButton.swift in Sources */,
 				44F197F728D6220A001E9635 /* FetchEntityUseCase.swift in Sources */,
 				447837EB28DA5EFA00C519AE /* LockViewController.swift in Sources */,
 				44F1981628D636B4001E9635 /* URL+appendQueryItem.swift in Sources */,
@@ -539,7 +557,9 @@
 				4488E1C728DA17AD005E32F0 /* RouterFactory.swift in Sources */,
 				447837F128DA60B800C519AE /* UIAlertController+createInputAlertController.swift in Sources */,
 				44F197FF28D62290001E9635 /* Serie.swift in Sources */,
+				4478380028DA7A7000C519AE /* CodableView.swift in Sources */,
 				4488E1CB28DA1BB7005E32F0 /* PersonRouter.swift in Sources */,
+				447837FE28DA7A5300C519AE /* LockView.swift in Sources */,
 				44F1981F28D637CE001E9635 /* APIClient.swift in Sources */,
 				447837EE28DA5F3400C519AE /* LockPresenter.swift in Sources */,
 				44F197F928D6221A001E9635 /* UseCase.swift in Sources */,
@@ -904,6 +924,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4478380128DA7B0600C519AE /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4478380228DA7B0600C519AE /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4478380128DA7B0600C519AE /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 44F197B028D61D99001E9635 /* Project object */;
 }
