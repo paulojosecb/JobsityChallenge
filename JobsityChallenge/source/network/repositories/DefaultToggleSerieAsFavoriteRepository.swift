@@ -13,6 +13,8 @@ final class DefaultToggleSerieAsFavoriteRepository: ToggleSerieAsFavoriteReposit
     
     init(localStorage: LocalStorage = DefaultLocalStorage()) {
         self.localStorage = localStorage
+        
+        
     }
     
     func toggle(_ request: ToggleSerieAsFavoriteUseCase.Request, completion: @escaping (Result<Bool, RepositoryError>) -> ()) {
