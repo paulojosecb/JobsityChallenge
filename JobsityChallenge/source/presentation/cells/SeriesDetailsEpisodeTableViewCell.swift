@@ -46,11 +46,19 @@ final class SeriesDetailsEpisodeTableViewCell: UITableViewCell, AutoTableViewCel
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setupViews()
         
-        //self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapCell)))
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapCell)))
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func didTapCell() {
+        guard let viewModel = viewModel else {
+            return
+        }
+        
+        self.gestureHandler?.didPressed(viewModel)
     }
     
     func buildViews() {

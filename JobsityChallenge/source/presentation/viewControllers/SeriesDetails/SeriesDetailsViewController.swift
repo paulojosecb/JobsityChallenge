@@ -44,6 +44,7 @@ final class SeriesDetailsViewController: AutoListenableViewController<SeriesDeta
         seriesDetailsView.seasonPickerView.dataSource =  self
         
         self.add(listener: seriesDetailsView.tableView)
+        self.seriesDetailsView.tableView.gestureHandler = self
         
         self.presenter.fetchSeriesDetails(id: self.id) { result in
             switch result {
@@ -75,6 +76,16 @@ final class SeriesDetailsViewController: AutoListenableViewController<SeriesDeta
                 self.present(errorAlertController, animated: true, completion: nil)
             }
         }
+    }
+}
+
+extension SeriesDetailsViewController: AutoTableViewCellGestureHandler {
+    func didPressed(_ row: AutoTableViewRowModel) {
+        guard let row = row as? EpisodesRowModel else {
+            return
+        }
+        
+        self.present(EpisodeDetailsViewController(id: row.id), animated: true, completion: nil)
     }
 }
 
