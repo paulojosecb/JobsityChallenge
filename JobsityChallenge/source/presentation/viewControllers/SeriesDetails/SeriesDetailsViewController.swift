@@ -85,12 +85,17 @@ final class SeriesDetailsViewController: AutoListenableViewController<SeriesDeta
 }
 
 extension SeriesDetailsViewController: AutoTableViewCellGestureHandler {
+
     func didPressed(_ row: AutoTableViewRowModel) {
         guard let row = row as? EpisodesRowModel else {
             return
         }
         
         self.present(EpisodeDetailsViewController(id: row.id), animated: true, completion: nil)
+    }
+    
+    func didReachBottom() {
+        print()
     }
 }
 

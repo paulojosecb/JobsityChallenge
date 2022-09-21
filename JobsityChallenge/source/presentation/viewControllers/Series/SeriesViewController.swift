@@ -140,6 +140,19 @@ extension SeriesViewController: UISearchBarDelegate {
 }
 
 extension SeriesViewController: AutoTableViewCellGestureHandler {
+    func didReachBottom() {
+        if !isFavoriteSeriesView {
+            self.presenter.fetchNextPage { result in
+                switch result {
+                case .success(let viewModel):
+                    self.viewModel?.sections.append(contentsOf: viewModel.sections)
+                case .failure(_):
+                    break
+                }
+            }
+        }
+    }
+    
     func didPressed(_ row: AutoTableViewRowModel) {
         guard let row = row as? SeriesRowModel else {
             return

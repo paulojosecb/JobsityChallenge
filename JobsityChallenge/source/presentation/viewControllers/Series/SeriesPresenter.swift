@@ -50,6 +50,7 @@ final class DefaultSeriesPresenter: SeriesPresenter {
             case .success(let response):
                 let viewModel = self.format(series: response.entities)
                 self.generalResult = viewModel
+                self.currentPage += 1
                 completion(.success(viewModel))
             case .failure(let error):
                 completion(.failure(error))

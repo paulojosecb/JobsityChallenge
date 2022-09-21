@@ -87,22 +87,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5398B5B8-2EF2-4967-9003-A4BE83754930"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../Library/Developer/Xcode/DerivedData/JobsityChallenge-eszrcaidfgwyiiaaoliaxgwokwtg/SourcePackages/checkouts/AutoTableView/Sources/AutoTableView/AutoTableViewDataSource.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "didUpdate(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "14753276-66B0-4186-8A3E-52594272C232"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -110,9 +94,25 @@
             filePath = "JobsityChallenge/source/presentation/viewControllers/Series/SeriesPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "exec(_:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E0BC13C7-E44A-4ED5-BBC8-11DAFA5ADD8B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JobsityChallenge/source/presentation/viewControllers/SeriesDetails/SeriesDetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "didReachBottom()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
