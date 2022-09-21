@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "AutoTableView",
+        "repositoryURL": "https://github.com/paulojosecb/AutoTableView",
+        "state": {
+          "branch": "master",
+          "revision": "6546ce122b5d079c3bcf0b80bb6350f4f0225d19",
+          "version": null
+        }
+      },
+      {
         "package": "SnapKit",
         "repositoryURL": "https://github.com/SnapKit/SnapKit",
         "state": {

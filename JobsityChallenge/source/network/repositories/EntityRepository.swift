@@ -26,9 +26,13 @@ class EntityRepository: FetchEntityRepository {
         self.apiClient.requestJSON(urlRequest: urlRequest) {  (result: Result<T, RequestError>) in
             switch result {
             case .success(let T):
-                completion(.success(T))
+                DispatchQueue.main.async {
+                    completion(.success(T))
+                }
             case .failure(let error):
-                completion(.failure(error.repositoryError))
+                DispatchQueue.main.async {
+                    completion(.failure(error.repositoryError))
+                }
             }
         }
         

@@ -25,7 +25,7 @@ class MainCoordinator: Coordinator {
     }
     
     func start(isPinEnabled: Bool) {
-        self.rootViewController = isPinEnabled ? LockViewController(coordinator: self) : ViewController()
+        self.rootViewController = isPinEnabled ? LockViewController(coordinator: self) : SeriesViewController()
         navigationController.viewControllers = [self.rootViewController!]
     }
     
@@ -35,8 +35,9 @@ class MainCoordinator: Coordinator {
     }
     
     func presentHomeScreenFromLock() {
-        let viewController = ViewController()
+        let viewController = SeriesViewController()
         viewController.modalPresentationStyle = .fullScreen
+        navigationController.navigationBar.prefersLargeTitles = true
         navigationController.present(viewController, animated: true, completion: nil)
     }
 
