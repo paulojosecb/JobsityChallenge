@@ -97,6 +97,7 @@ class SeriesViewController: AutoListenableViewController<SeriesViewModel> {
     private func handle(_ result: (Result<SeriesViewModel, Error>)) {
         switch result {
         case .success(let viewModel):
+            self.seriesView.tableView.hideSkeleton()
             self.viewModel = viewModel
         case .failure(let error):
             let errorAlertController = UIAlertController.createErrorAlertController(error, message: "An Error occurred while fetching series. Please try again")

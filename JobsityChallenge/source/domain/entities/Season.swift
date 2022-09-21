@@ -9,6 +9,6 @@ import Foundation
 
 struct Season: Entity, Codable {
     let id: Int
-    let number: Int
-    let episodeOrder: Int
+    let number: Int?
+    let episodeOrder: Int?
 }

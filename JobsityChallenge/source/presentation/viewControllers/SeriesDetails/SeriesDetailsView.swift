@@ -7,6 +7,7 @@
 
 import UIKit
 import AutoTableView
+import SkeletonView
 
 protocol SeriesDetailsViewDelegate: NSObject {
     func didTapFavorite()
@@ -24,6 +25,8 @@ final class SeriesDetailsView: UIView, CodableView {
                 return
             }
             
+            stackView.hideSkeleton()
+            
             self.imageView.downloaded(from: viewModel.imageUrl, contentMode: .scaleAspectFill)
             self.favoriteImageView.image = viewModel.isFavorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
             self.titleLabel.text = viewModel.title
@@ -40,6 +43,7 @@ final class SeriesDetailsView: UIView, CodableView {
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
+        stackView.isSkeletonable = true
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .fill
@@ -51,6 +55,7 @@ final class SeriesDetailsView: UIView, CodableView {
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.isSkeletonable = true
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 16
         return imageView
@@ -58,6 +63,7 @@ final class SeriesDetailsView: UIView, CodableView {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
+        label.isSkeletonable = true
         label.text = ""
         label.font = .boldSystemFont(ofSize: 32)
         return label
@@ -65,6 +71,7 @@ final class SeriesDetailsView: UIView, CodableView {
     
     lazy var favoriteImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.isSkeletonable = true
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(systemName: "star")
         imageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
@@ -75,6 +82,7 @@ final class SeriesDetailsView: UIView, CodableView {
     
     lazy var titleStackView: UIStackView = {
         let stackView = UIStackView()
+        stackView.isSkeletonable = true
         stackView.axis = .horizontal
         stackView.spacing = 8
         return stackView
@@ -91,6 +99,7 @@ final class SeriesDetailsView: UIView, CodableView {
     
     lazy var summaryTitleLabel: UILabel = {
         let label = UILabel()
+        label.isSkeletonable = true
         label.text = "Summary"
         label.numberOfLines = 0
         label.font = .boldSystemFont(ofSize: 24)
@@ -99,6 +108,7 @@ final class SeriesDetailsView: UIView, CodableView {
     
     lazy var summaryLabel: UILabel = {
         let label = UILabel()
+        label.isSkeletonable = true
         label.text = ""
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 16)
@@ -107,6 +117,7 @@ final class SeriesDetailsView: UIView, CodableView {
     
     lazy var episodesLabel: UILabel = {
         let label = UILabel()
+        label.isSkeletonable = true
         label.text = "Episodes"
         label.numberOfLines = 0
         label.font = .boldSystemFont(ofSize: 24)
@@ -128,6 +139,7 @@ final class SeriesDetailsView: UIView, CodableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupViews()
+        self.stackView.showAnimatedSkeleton()
         self.backgroundColor = UIColor(white: 0.98, alpha: 1)
     }
     

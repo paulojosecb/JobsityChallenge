@@ -16,6 +16,7 @@ final class SeriesView: UIView, CodableView {
     
     lazy var tableView: AutoTableView<SeriesTableViewCell, SeriesViewModel> = {
         let tableView = AutoTableView<SeriesTableViewCell, SeriesViewModel> (data: .init(sections: []), gestureHandler: nil)
+        tableView.isSkeletonable = true
         tableView.separatorStyle = .none
         return tableView
     }()
@@ -23,6 +24,7 @@ final class SeriesView: UIView, CodableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupViews()
+        tableView.showAnimatedSkeleton()
         self.backgroundColor = UIColor(white: 0.98, alpha: 1)
     }
     

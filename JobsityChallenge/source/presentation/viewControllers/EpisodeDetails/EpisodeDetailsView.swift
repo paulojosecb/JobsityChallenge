@@ -19,6 +19,8 @@ final class EpisodeDetailsView: UIView, CodableView {
                 return
             }
             
+            stackView.hideSkeleton()
+            
             self.imageView.downloaded(from: viewModel.imageUrl, contentMode: .scaleAspectFill)
             self.titleLabel.text = "\(viewModel.number). \(viewModel.title)"
             self.seasonLabel.text = "Season \(viewModel.season)"
@@ -34,6 +36,7 @@ final class EpisodeDetailsView: UIView, CodableView {
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
+        stackView.isSkeletonable = true
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .fill
@@ -45,6 +48,7 @@ final class EpisodeDetailsView: UIView, CodableView {
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.isSkeletonable = true
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 16
         return imageView
@@ -52,6 +56,7 @@ final class EpisodeDetailsView: UIView, CodableView {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
+        label.isSkeletonable = true
         label.text = ""
         label.font = .boldSystemFont(ofSize: 32)
         return label
@@ -59,6 +64,7 @@ final class EpisodeDetailsView: UIView, CodableView {
     
     lazy var seasonLabel: UILabel = {
         let label = UILabel()
+        label.isSkeletonable = true
         label.text = ""
         label.font = .systemFont(ofSize: 16, weight: .light)
         return label
@@ -66,6 +72,7 @@ final class EpisodeDetailsView: UIView, CodableView {
     
     lazy var summaryTitleLabel: UILabel = {
         let label = UILabel()
+        label.isSkeletonable = true
         label.text = "Summary"
         label.numberOfLines = 0
         label.font = .boldSystemFont(ofSize: 24)
@@ -73,6 +80,7 @@ final class EpisodeDetailsView: UIView, CodableView {
     }()
     lazy var summaryLabel: UILabel = {
         let label = UILabel()
+        label.isSkeletonable = true
         label.text = ""
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 16)
@@ -82,6 +90,7 @@ final class EpisodeDetailsView: UIView, CodableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupViews()
+        stackView.showAnimatedSkeleton()
         self.backgroundColor = UIColor(white: 0.98, alpha: 1)
     }
     

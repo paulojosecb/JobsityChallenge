@@ -51,6 +51,7 @@
 		44DCAC4428DB59AC0001B819 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCAC4328DB59AC0001B819 /* Episode.swift */; };
 		44DCAC4628DB59BC0001B819 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCAC4528DB59BC0001B819 /* Person.swift */; };
 		44DCAC4828DB59D40001B819 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCAC4728DB59D40001B819 /* Season.swift */; };
+		44DCAC5128DB74140001B819 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 44DCAC5028DB74140001B819 /* SkeletonView */; };
 		44F197BC28D61D99001E9635 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F197BB28D61D99001E9635 /* AppDelegate.swift */; };
 		44F197BE28D61D99001E9635 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F197BD28D61D99001E9635 /* SceneDelegate.swift */; };
 		44F197C028D61D99001E9635 /* SeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F197BF28D61D99001E9635 /* SeriesViewController.swift */; };
@@ -170,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4478380328DA7B0600C519AE /* SnapKit in Frameworks */,
+				44DCAC5128DB74140001B819 /* SkeletonView in Frameworks */,
 				4478380828DA7FCB00C519AE /* AutoTableView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -532,6 +534,7 @@
 			packageProductDependencies = (
 				4478380228DA7B0600C519AE /* SnapKit */,
 				4478380728DA7FCB00C519AE /* AutoTableView */,
+				44DCAC5028DB74140001B819 /* SkeletonView */,
 			);
 			productName = JobsityChallenge;
 			productReference = 44F197B828D61D99001E9635 /* JobsityChallenge.app */;
@@ -608,6 +611,7 @@
 			packageReferences = (
 				4478380128DA7B0600C519AE /* XCRemoteSwiftPackageReference "SnapKit" */,
 				4478380628DA7FCB00C519AE /* XCRemoteSwiftPackageReference "AutoTableView" */,
+				44DCAC4F28DB74140001B819 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = 44F197B928D61D99001E9635 /* Products */;
 			projectDirPath = "";
@@ -1081,6 +1085,14 @@
 				kind = branch;
 			};
 		};
+		44DCAC4F28DB74140001B819 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView";
+			requirement = {
+				kind = exactVersion;
+				version = 1.9.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1093,6 +1105,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4478380628DA7FCB00C519AE /* XCRemoteSwiftPackageReference "AutoTableView" */;
 			productName = AutoTableView;
+		};
+		44DCAC5028DB74140001B819 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44DCAC4F28DB74140001B819 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

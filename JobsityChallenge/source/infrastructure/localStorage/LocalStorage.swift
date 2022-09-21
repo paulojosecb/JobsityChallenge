@@ -51,27 +51,31 @@ final class DefaultLocalStorage: LocalStorage {
     
     func toggleOnFavorite(serie: Serie) throws -> Bool {
         guard let data = userDefaults.data(forKey: favoriteKey),
-              var series = try? PropertyListDecoder().decode([Serie].self, from: data) else {
+              var series = self.decode(data: data) else {
             
-                  if let data = try? PropertyListEncoder().encode([serie]) {
+                  if let data = encode(series: [serie]){
                       userDefaults.set(data, forKey: favoriteKey)
-                      return true
+                      return false
                   } else {
                       throw LocalStorageError.errorOnOperation
                   }
-
         }
         
         if let _ = series.firstIndex(of: serie) {
             let filteredSeries = series.filter { $0.id != serie.id }
-            userDefaults.set(filteredSeries, forKey: favoriteKey)
             
-            return false
+            if let data = encode(series: filteredSeries){
+                userDefaults.set(data, forKey: favoriteKey)
+                return false
+            } else {
+                throw LocalStorageError.errorOnOperation
+            }
+            
         } else {
             
             series.append(serie)
             
-            if let data = try? PropertyListEncoder().encode(series) {
+            if let data = encode(series: series){
                 userDefaults.set(data, forKey: favoriteKey)
                 return true
             } else {
@@ -96,6 +100,14 @@ final class DefaultLocalStorage: LocalStorage {
         }
         
         return series
+    }
+    
+    private func encode(series: [Serie]) -> Data? {
+        return try? PropertyListEncoder().encode(series)
+    }
+    
+    private func decode(data: Data) -> [Serie]? {
+        return try? PropertyListDecoder().decode([Serie].self, from: data)
     }
     
     
