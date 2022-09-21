@@ -52,6 +52,8 @@
 		44DCAC4628DB59BC0001B819 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCAC4528DB59BC0001B819 /* Person.swift */; };
 		44DCAC4828DB59D40001B819 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCAC4728DB59D40001B819 /* Season.swift */; };
 		44DCAC5128DB74140001B819 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 44DCAC5028DB74140001B819 /* SkeletonView */; };
+		44DCAC5328DB7E8A0001B819 /* ApiClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCAC5228DB7E8A0001B819 /* ApiClientMock.swift */; };
+		44DCAC5828DB8B6E0001B819 /* EnvConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCAC5728DB8B6E0001B819 /* EnvConfiguration.swift */; };
 		44F197BC28D61D99001E9635 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F197BB28D61D99001E9635 /* AppDelegate.swift */; };
 		44F197BE28D61D99001E9635 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F197BD28D61D99001E9635 /* SceneDelegate.swift */; };
 		44F197C028D61D99001E9635 /* SeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F197BF28D61D99001E9635 /* SeriesViewController.swift */; };
@@ -67,7 +69,6 @@
 		44F1980228D622EB001E9635 /* FetchEntityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F1980128D622EB001E9635 /* FetchEntityRepository.swift */; };
 		44F1980428D626F3001E9635 /* RepositoryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F1980328D626F3001E9635 /* RepositoryError.swift */; };
 		44F1980828D62788001E9635 /* FetchSeriesUseCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F1980728D62788001E9635 /* FetchSeriesUseCasesTests.swift */; };
-		44F1980B28D627B6001E9635 /* MockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F1980A28D627B6001E9635 /* MockRepository.swift */; };
 		44F1980D28D62908001E9635 /* Series.json in Sources */ = {isa = PBXBuildFile; fileRef = 44F1980C28D62908001E9635 /* Series.json */; };
 		44F1981028D62C46001E9635 /* Series.json in Resources */ = {isa = PBXBuildFile; fileRef = 44F1980C28D62908001E9635 /* Series.json */; };
 		44F1981328D6331E001E9635 /* EntityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F1981228D6331D001E9635 /* EntityRepository.swift */; };
@@ -137,6 +138,8 @@
 		44DCAC4328DB59AC0001B819 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		44DCAC4528DB59BC0001B819 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		44DCAC4728DB59D40001B819 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
+		44DCAC5228DB7E8A0001B819 /* ApiClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientMock.swift; sourceTree = "<group>"; };
+		44DCAC5728DB8B6E0001B819 /* EnvConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvConfiguration.swift; sourceTree = "<group>"; };
 		44F197B828D61D99001E9635 /* JobsityChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobsityChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44F197BB28D61D99001E9635 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44F197BD28D61D99001E9635 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,7 +159,6 @@
 		44F1980128D622EB001E9635 /* FetchEntityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchEntityRepository.swift; sourceTree = "<group>"; };
 		44F1980328D626F3001E9635 /* RepositoryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryError.swift; sourceTree = "<group>"; };
 		44F1980728D62788001E9635 /* FetchSeriesUseCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchSeriesUseCasesTests.swift; sourceTree = "<group>"; };
-		44F1980A28D627B6001E9635 /* MockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRepository.swift; sourceTree = "<group>"; };
 		44F1980C28D62908001E9635 /* Series.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Series.json; sourceTree = "<group>"; };
 		44F1981228D6331D001E9635 /* EntityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityRepository.swift; sourceTree = "<group>"; };
 		44F1981528D636B4001E9635 /* URL+appendQueryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+appendQueryItem.swift"; sourceTree = "<group>"; };
@@ -458,8 +460,8 @@
 		44F1980928D627AB001E9635 /* mock */ = {
 			isa = PBXGroup;
 			children = (
-				44F1980A28D627B6001E9635 /* MockRepository.swift */,
 				44F1980C28D62908001E9635 /* Series.json */,
+				44DCAC5228DB7E8A0001B819 /* ApiClientMock.swift */,
 			);
 			path = mock;
 			sourceTree = "<group>";
@@ -471,6 +473,7 @@
 				44F1981A28D63741001E9635 /* routers */,
 				44F1981728D6371C001E9635 /* utils */,
 				44F1981428D636A1001E9635 /* extension */,
+				44DCAC5728DB8B6E0001B819 /* EnvConfiguration.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -708,6 +711,7 @@
 				44F1981928D63725001E9635 /* HTTPMethod.swift in Sources */,
 				447837C628DA29FB00C519AE /* DefaultToggleSerieAsFavoriteRepository.swift in Sources */,
 				447837F628DA71B000C519AE /* AuthenticationUseCase.swift in Sources */,
+				44DCAC5828DB8B6E0001B819 /* EnvConfiguration.swift in Sources */,
 				44F1980228D622EB001E9635 /* FetchEntityRepository.swift in Sources */,
 				4488E1C928DA1818005E32F0 /* EpisodeRouter.swift in Sources */,
 				44F197BE28D61D99001E9635 /* SceneDelegate.swift in Sources */,
@@ -720,8 +724,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				44F197D628D61D9A001E9635 /* JobsityChallengeTests.swift in Sources */,
-				44F1980B28D627B6001E9635 /* MockRepository.swift in Sources */,
 				44F1980D28D62908001E9635 /* Series.json in Sources */,
+				44DCAC5328DB7E8A0001B819 /* ApiClientMock.swift in Sources */,
 				44F1980828D62788001E9635 /* FetchSeriesUseCasesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -766,6 +770,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				BASE_URL = "https://api.tvmaze.com/";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -828,6 +833,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				BASE_URL = "https://api.tvmaze.com/";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

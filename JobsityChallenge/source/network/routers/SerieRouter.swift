@@ -13,7 +13,7 @@ internal enum SerieRouter: Router {
     case byName(String)
     case byId(Int)
 
-    internal static let baseUrl = "https://api.tvmaze.com/"
+    internal static let baseUrl = EnvConfiguration.apiBaseURL
 
     fileprivate var method: HTTPMethod {
         switch self {

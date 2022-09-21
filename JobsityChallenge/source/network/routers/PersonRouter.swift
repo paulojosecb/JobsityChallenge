@@ -12,7 +12,7 @@ internal enum PersonRouter: Router {
     case byName(String)
     case credits(Int)
 
-    internal static let baseUrl = "https://api.tvmaze.com/"
+    internal static let baseUrl = EnvConfiguration.apiBaseURL
 
     fileprivate var method: HTTPMethod {
         switch self {
