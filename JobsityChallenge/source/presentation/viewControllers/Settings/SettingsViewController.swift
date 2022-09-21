@@ -83,9 +83,18 @@ final class SettingsViewController: UIViewController {
             
         }
     }
+    
+    private func presentFavoritesSeries() {
+        let viewController = SeriesViewController(isFavoriteSeriesView: true)
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 extension SettingsViewController: SettingsViewDelegate {
+    func didTapFavoritesLabel() {
+        self.presentFavoritesSeries()
+    }
+    
     func didIsTouchIDEnabledChange(newValue: Bool) {
         let _ = self.presenter.toggleTouchID(newValue: newValue)
     }

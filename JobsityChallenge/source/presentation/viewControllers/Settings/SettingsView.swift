@@ -10,6 +10,7 @@ import UIKit
 protocol SettingsViewDelegate: NSObject {
     func didIsTouchIDEnabledChange(newValue: Bool)
     func didIsPinEnabledChange(newValue: Bool)
+    func didTapFavoritesLabel()
 }
 
 final class SettingsView: UIView, CodableView {
@@ -82,6 +83,15 @@ final class SettingsView: UIView, CodableView {
         return stackView
     }()
     
+    lazy var favoritesLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .systemBlue
+        label.text = "Favorites TV Shows"
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapFavorites)))
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupViews()
@@ -90,6 +100,10 @@ final class SettingsView: UIView, CodableView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func didTapFavorites() {
+        self.delegate?.didTapFavoritesLabel()
     }
     
     func buildViews() {
@@ -101,6 +115,8 @@ final class SettingsView: UIView, CodableView {
         
         stackView.addArrangedSubview(pinStackView)
         stackView.addArrangedSubview(touchIDStackView)
+        
+        stackView.addArrangedSubview(favoritesLabel)
         
         self.addSubview(scrollView)
         scrollView.addSubview(stackView)

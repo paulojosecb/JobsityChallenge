@@ -10,6 +10,8 @@ import AutoTableView
     
 class SeriesViewController: AutoListenableViewController<SeriesViewModel> {
     
+    let isFavoriteSeriesView: Bool
+    
     let presenter: SeriesPresenter
     let seriesView: SeriesView
     
@@ -17,12 +19,13 @@ class SeriesViewController: AutoListenableViewController<SeriesViewModel> {
 
     lazy var rightBarButton: UIBarButtonItem = {
         let barButton = UIBarButtonItem(title: "Settings", image: nil, primaryAction: UIAction { _ in
-            self.present(SettingsViewController(), animated: true, completion: nil)
+            self.navigationController?.pushViewController(SettingsViewController(), animated: true)
         }, menu: nil)
         return barButton
     }()
     
-    init(presenter: SeriesPresenter = DefaultSeriesPresenter()) {
+    init(isFavoriteSeriesView: Bool = false, presenter: SeriesPresenter = DefaultSeriesPresenter()) {
+        self.isFavoriteSeriesView = isFavoriteSeriesView
         self.presenter = presenter
         self.seriesView = SeriesView()
         super.init(nibName: nil, bundle: nil)
@@ -46,28 +49,55 @@ class SeriesViewController: AutoListenableViewController<SeriesViewModel> {
         self.add(listener: seriesView.tableView)
         self.seriesView.tableView.gestureHandler = self
         
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.rightBarButtonItem = rightBarButton
-        self.title = "Jobsity TV Shows"
+        if !isFavoriteSeriesView {
+            self.setupSearchBar()
+        }
         
+        self.setupNavBar()
+        self.fetchTvShows()
+    }
+    
+    private func setupSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search shows"
         self.navigationItem.searchController = searchController
         self.definesPresentationContext = true
+    }
+    
+    private func setupNavBar() {
         
-        self.presenter.fetchNextPage { result in
-            switch result {
-            case .success(let viewModel):
-                self.viewModel = viewModel
-            case .failure(let error):
-                let errorAlertController = UIAlertController.createErrorAlertController(error, message: "An Error occurred while fetching series. Please try again")
-                self.present(errorAlertController, animated: true, completion: nil)
-                
+        if !isFavoriteSeriesView {
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+            self.navigationItem.rightBarButtonItem = rightBarButton
+        }
+        
+        self.title = isFavoriteSeriesView ? "Favorite TV Shows" : "Jobsity TV Shows"
+    }
+    
+    private func fetchTvShows() {
+        if isFavoriteSeriesView {
+            self.presenter.fetchFavorites { result in
+                self.handle(result)
+            }
+        } else {
+            self.presenter.fetchNextPage { result in
+                self.handle(result)
             }
         }
-        // Do any additional setup after loading the view.
+
+    }
+    
+    private func handle(_ result: (Result<SeriesViewModel, Error>)) {
+        switch result {
+        case .success(let viewModel):
+            self.viewModel = viewModel
+        case .failure(let error):
+            let errorAlertController = UIAlertController.createErrorAlertController(error, message: "An Error occurred while fetching series. Please try again")
+            self.present(errorAlertController, animated: true, completion: nil)
+            
+        }
     }
     
     private func filterSeriesBy(query: String) {

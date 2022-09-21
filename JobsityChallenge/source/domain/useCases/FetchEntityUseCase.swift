@@ -39,6 +39,7 @@ final class FetchEntityUseCase<T: Codable>: UseCase {
         case byName(String)
         case byId(Int)
         case all
+        case favorites
     }
     
     enum EpisodeRequestType {

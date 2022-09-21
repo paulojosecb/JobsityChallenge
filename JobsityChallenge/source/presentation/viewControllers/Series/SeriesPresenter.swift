@@ -12,6 +12,7 @@ protocol SeriesPresenter {
     var searchResult: SeriesViewModel { get }
     var generalResult: SeriesViewModel { get }
     
+    func fetchFavorites(completion: @escaping (Result<SeriesViewModel, Error>) -> ())
     func fetchNextPage(completion: @escaping (Result<SeriesViewModel, Error>) -> ())
     func fetchSeriesBy(query: String, completion: @escaping (Result<SeriesViewModel, Error>) -> ())
 }
@@ -30,8 +31,21 @@ final class DefaultSeriesPresenter: SeriesPresenter {
         self.useCase = useCase
     }
     
+    func fetchFavorites(completion: @escaping (Result<SeriesViewModel, Error>) -> ()) {
+        
+        self.exec(.init(type: .serie(.favorites)), completion: completion)
+        
+    }
+    
     func fetchNextPage(completion: @escaping (Result<SeriesViewModel, Error>) -> ()) {
-        self.useCase.exec(request: .init(type: .serie(.paged(self.currentPage)))) { result in
+        
+        self.exec(.init(type: .serie(.paged(self.currentPage))), completion: completion)
+        
+    }
+    
+    private func exec(_ request: FetchEntityUseCase<[Serie]>.Request, completion: @escaping (Result<SeriesViewModel, Error>) -> ()) {
+        
+        self.useCase.exec(request: request) { result in
             switch result {
             case .success(let response):
                 let viewModel = self.format(series: response.entities)
@@ -41,6 +55,7 @@ final class DefaultSeriesPresenter: SeriesPresenter {
                 completion(.failure(error))
             }
         }
+        
     }
     
     func fetchSeriesBy(query: String, completion: @escaping (Result<SeriesViewModel, Error>) -> ()) {

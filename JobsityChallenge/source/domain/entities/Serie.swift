@@ -26,42 +26,8 @@ struct Serie: Entity, Codable, Equatable {
     }
 }
 
-struct Rating: Codable {
-    let average: Double?
-}
-
 struct Image: Codable {
     let medium: String?
     let original: String?
 }
 
-struct Episode: Entity, Codable {
-    let id: Int
-    let url: String?
-    let name: String?
-    let season: Int?
-    let number : Int?
-    let summary: String?
-    let image: Image?
-}
-
-struct Person: Entity, Codable {
-    let id: Int
-    let url: String?
-    let name: String?
-    let image: Image?
-}
-
-struct PersonCastCredits: Entity, Codable {
-    let _embedded: PersonCastCreditsEmbedded
-}
-
-struct PersonCastCreditsEmbedded: Codable {
-    let show: Serie
-}
-
-struct Season: Entity, Codable {
-    let id: Int
-    let number: Int
-    let episodeOrder: Int
-}

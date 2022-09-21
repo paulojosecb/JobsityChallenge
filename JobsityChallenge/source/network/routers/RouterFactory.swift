@@ -47,6 +47,8 @@ final class RouterFactory {
             return SerieRouter.all
         case .paged(let page):
             return SerieRouter.paged(page)
+        case .favorites:
+            return nil
         }
         
     }

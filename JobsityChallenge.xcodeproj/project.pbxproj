@@ -47,6 +47,10 @@
 		44DCAC3C28DB49500001B819 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCAC3B28DB49500001B819 /* SettingsViewController.swift */; };
 		44DCAC3E28DB49570001B819 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCAC3D28DB49570001B819 /* SettingsView.swift */; };
 		44DCAC4028DB495E0001B819 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCAC3F28DB495E0001B819 /* SettingsPresenter.swift */; };
+		44DCAC4228DB59A60001B819 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCAC4128DB59A60001B819 /* Rating.swift */; };
+		44DCAC4428DB59AC0001B819 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCAC4328DB59AC0001B819 /* Episode.swift */; };
+		44DCAC4628DB59BC0001B819 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCAC4528DB59BC0001B819 /* Person.swift */; };
+		44DCAC4828DB59D40001B819 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCAC4728DB59D40001B819 /* Season.swift */; };
 		44F197BC28D61D99001E9635 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F197BB28D61D99001E9635 /* AppDelegate.swift */; };
 		44F197BE28D61D99001E9635 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F197BD28D61D99001E9635 /* SceneDelegate.swift */; };
 		44F197C028D61D99001E9635 /* SeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F197BF28D61D99001E9635 /* SeriesViewController.swift */; };
@@ -128,6 +132,10 @@
 		44DCAC3B28DB49500001B819 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		44DCAC3D28DB49570001B819 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		44DCAC3F28DB495E0001B819 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		44DCAC4128DB59A60001B819 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		44DCAC4328DB59AC0001B819 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		44DCAC4528DB59BC0001B819 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		44DCAC4728DB59D40001B819 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		44F197B828D61D99001E9635 /* JobsityChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobsityChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44F197BB28D61D99001E9635 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44F197BD28D61D99001E9635 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -409,6 +417,10 @@
 			isa = PBXGroup;
 			children = (
 				44F197FE28D62290001E9635 /* Serie.swift */,
+				44DCAC4128DB59A60001B819 /* Rating.swift */,
+				44DCAC4328DB59AC0001B819 /* Episode.swift */,
+				44DCAC4528DB59BC0001B819 /* Person.swift */,
+				44DCAC4728DB59D40001B819 /* Season.swift */,
 			);
 			path = entities;
 			sourceTree = "<group>";
@@ -655,6 +667,7 @@
 				4478380E28DA805800C519AE /* SeriesView.swift in Sources */,
 				44F197C028D61D99001E9635 /* SeriesViewController.swift in Sources */,
 				4478381228DA808600C519AE /* SeriesViewModel.swift in Sources */,
+				44DCAC4628DB59BC0001B819 /* Person.swift in Sources */,
 				44F197F328D61E0A001E9635 /* Coordinator.swift in Sources */,
 				44DCAC3728DB3C930001B819 /* EpisodeDetailsPresenter.swift in Sources */,
 				4488E1CD28DA1D67005E32F0 /* Router.swift in Sources */,
@@ -662,6 +675,7 @@
 				447837C428DA29F100C519AE /* ToggleSerieAsFavoriteRepository.swift in Sources */,
 				447837E328DA329600C519AE /* LocalStorage.swift in Sources */,
 				44DCAC3528DB3C890001B819 /* EpisodeDetailsView.swift in Sources */,
+				44DCAC4228DB59A60001B819 /* Rating.swift in Sources */,
 				4478381028DA806000C519AE /* SeriesPresenter.swift in Sources */,
 				44DCAC3928DB3C9E0001B819 /* EpisodeDetailsViewModel.swift in Sources */,
 				4478380B28DA803C00C519AE /* SeriesTableViewCell.swift in Sources */,
@@ -678,10 +692,12 @@
 				4488E1CB28DA1BB7005E32F0 /* PersonRouter.swift in Sources */,
 				447837FE28DA7A5300C519AE /* LockView.swift in Sources */,
 				44F1981F28D637CE001E9635 /* APIClient.swift in Sources */,
+				44DCAC4828DB59D40001B819 /* Season.swift in Sources */,
 				4478381428DA908B00C519AE /* PaddingLabel.swift in Sources */,
 				4478381628DA91D000C519AE /* ImageView+downloaded.swift in Sources */,
 				44DCAC3E28DB49570001B819 /* SettingsView.swift in Sources */,
 				447837EE28DA5F3400C519AE /* LockPresenter.swift in Sources */,
+				44DCAC4428DB59AC0001B819 /* Episode.swift in Sources */,
 				44F197F928D6221A001E9635 /* UseCase.swift in Sources */,
 				44F1981C28D6374D001E9635 /* SerieRouter.swift in Sources */,
 				44F197BC28D61D99001E9635 /* AppDelegate.swift in Sources */,
