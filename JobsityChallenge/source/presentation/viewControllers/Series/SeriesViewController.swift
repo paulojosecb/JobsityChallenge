@@ -15,6 +15,13 @@ class SeriesViewController: AutoListenableViewController<SeriesViewModel> {
     
     lazy var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
 
+    lazy var rightBarButton: UIBarButtonItem = {
+        let barButton = UIBarButtonItem(title: "Settings", image: nil, primaryAction: UIAction { _ in
+            self.present(SettingsViewController(), animated: true, completion: nil)
+        }, menu: nil)
+        return barButton
+    }()
+    
     init(presenter: SeriesPresenter = DefaultSeriesPresenter()) {
         self.presenter = presenter
         self.seriesView = SeriesView()
@@ -35,11 +42,12 @@ class SeriesViewController: AutoListenableViewController<SeriesViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = seriesView
-        
+    
         self.add(listener: seriesView.tableView)
         self.seriesView.tableView.gestureHandler = self
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.rightBarButtonItem = rightBarButton
         self.title = "Jobsity TV Shows"
         
         let searchController = UISearchController(searchResultsController: nil)

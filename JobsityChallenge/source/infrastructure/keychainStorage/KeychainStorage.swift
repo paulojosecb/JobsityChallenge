@@ -13,6 +13,7 @@ protocol KeychainStorage {
     func create(pin: String, completion: @escaping (Result<Bool, KeychainError>) -> ())
     func update(pin: String, completion: @escaping (Result<Bool, KeychainError>) -> ())
     func validate(pin: String, completion: @escaping (Result<Bool, KeychainError>) -> ())
+    func delete(completion: @escaping (Result<Bool, KeychainError>) -> ())
 }
 
 enum KeychainError: Error {
@@ -24,12 +25,12 @@ final class DefaultKeychainStorage: KeychainStorage {
     
     let localStorage: LocalStorage
     
-    let pinService = "Jobsity Challenge Pin Service"
-    let pinAccount  = "Jobsity Challenge Pin Account"
+    let pinService = "Pin Service"
+    let pinAccount  = "Pin Account"
     
     var isPinEnabled: Bool {
         get {
-            return true //self.localStorage.isPinEnabled()
+            return self.localStorage.isPinEnabled()
         }
     }
     
@@ -81,6 +82,16 @@ final class DefaultKeychainStorage: KeychainStorage {
         completion(.success(storedPin == pin))
     }
     
+    func delete(completion: @escaping (Result<Bool, KeychainError>) -> ()) {
+        let query = [
+            kSecClass: kSecClassGenericPassword,
+            kSecAttrServer: pinService,
+            kSecAttrAccount: pinAccount
+        ] as CFDictionary
+
+        SecItemDelete(query)
+    }
+    
     private func save(_ data: Data, service: String, account: String) throws {
         let query = [
             kSecValueData: data,
@@ -92,7 +103,7 @@ final class DefaultKeychainStorage: KeychainStorage {
         let saveStatus = SecItemAdd(query, nil)
      
         if saveStatus != errSecSuccess {
-            throw KeychainError.unexpectedPasswordData
+            update(data, service: service, account: account)
         }
         
         if saveStatus == errSecDuplicateItem {
@@ -123,5 +134,5 @@ final class DefaultKeychainStorage: KeychainStorage {
         SecItemCopyMatching(query, &result)
         return result as? Data
     }
-    
+        
 }

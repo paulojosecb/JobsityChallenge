@@ -35,10 +35,14 @@ class MainCoordinator: Coordinator {
     }
     
     func presentHomeScreenFromLock() {
+        let navController = UINavigationController()
         let viewController = SeriesViewController()
-        viewController.modalPresentationStyle = .fullScreen
-        navigationController.navigationBar.prefersLargeTitles = true
-        navigationController.present(viewController, animated: true, completion: nil)
+        
+        navController.viewControllers = [viewController]
+        navController.modalPresentationStyle = .overCurrentContext
+        navController.navigationBar.prefersLargeTitles = true
+        
+        navigationController.present(navController, animated: true)
     }
 
 }

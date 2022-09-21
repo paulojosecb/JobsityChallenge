@@ -14,6 +14,8 @@ enum LocalStorageError: Error {
 protocol LocalStorage {
     func isPinEnabled() -> Bool
     func setPinEnabled(enable: Bool)
+    func isTouchIDEnabled() -> Bool
+    func setTouchIDEnabled(enable: Bool)
     func toggleOnFavorite(serie: Serie) throws -> Bool
     func fetchFavorites(completion: @escaping (Result<[Serie], LocalStorageError>) -> ())
 }
@@ -24,6 +26,7 @@ final class DefaultLocalStorage: LocalStorage {
     
     let favoriteKey = "FavoriteKey"
     let isPinEnabledKey = "isPinEnabled"
+    let isTouchID = "isTouchIDEnabled"
     
     init(userDefaults : UserDefaults = UserDefaults.standard) {
         self.userDefaults = userDefaults
@@ -35,6 +38,14 @@ final class DefaultLocalStorage: LocalStorage {
     
     func setPinEnabled(enable: Bool) {
         userDefaults.set(enable, forKey: isPinEnabledKey)
+    }
+    
+    func isTouchIDEnabled() -> Bool {
+        return userDefaults.bool(forKey: isTouchID)
+    }
+    
+    func setTouchIDEnabled(enable: Bool) {
+        userDefaults.set(enable, forKey: isTouchID)
     }
     
     func toggleOnFavorite(serie: Serie) throws -> Bool {
