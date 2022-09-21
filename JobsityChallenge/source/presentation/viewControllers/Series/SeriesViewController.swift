@@ -60,12 +60,15 @@ class SeriesViewController: AutoListenableViewController<SeriesViewModel> {
         }
         
         self.setupNavBar()
+        self.fetchTvShows()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.fetchTvShows()
+        if isFavoriteSeriesView {
+            self.fetchTvShows()
+        }
     }
     
     private func setupSearchBar() {

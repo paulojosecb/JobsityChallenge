@@ -1,0 +1,56 @@
+{
+  "DVTSourceControlWorkspaceBlueprintLocationsKey" : {
+    "19661074603F7C2937E503A5D98993E70EB164C8" : {
+      "DVTSourceControlBranchIdentifierKey" : "develop",
+      "DVTSourceControlLocationRevisionKey" : "9df599a0732d6ea6efbaed16fdab83562e64dfb5",
+      "DVTSourceControlBranchOptionsKey" : 4,
+      "DVTSourceControlBranchRemoteNameKey" : "origin",
+      "DVTSourceControlWorkspaceBlueprintLocationTypeKey" : "DVTSourceControlBranch"
+    },
+    "3AF18F9C6F5D633BAA0B3F935459E0C777C82047" : {
+      "DVTSourceControlWorkspaceBlueprintLocationTypeKey" : "DVTSourceControlLockedRevisionLocation",
+      "DVTSourceControlLocationRevisionKey" : "f222cbdf325885926566172f6f5f06af95473158"
+    },
+    "65AAC195924FAE31D96F18D3CBB87B5DECFECC23" : {
+      "DVTSourceControlWorkspaceBlueprintLocationTypeKey" : "DVTSourceControlLockedRevisionLocation",
+      "DVTSourceControlLocationRevisionKey" : "7a2cc5d51d5dda6fecca542f1930602cce4a6063"
+    },
+    "DCD729A52E05B74548562D710EA0E412FA5B3792" : {
+      "DVTSourceControlWorkspaceBlueprintLocationTypeKey" : "DVTSourceControlLockedRevisionLocation",
+      "DVTSourceControlLocationRevisionKey" : "31d252bbb20f6258ee891ee833190fd18c87cd0f"
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "19661074603F7C2937E503A5D98993E70EB164C8",
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6DD0A0AE-840A-4E5B-BD66-A65448AE0C8C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "19661074603F7C2937E503A5D98993E70EB164C8" : "JobsityChallenge\/",
+    "3AF18F9C6F5D633BAA0B3F935459E0C777C82047" : "..\/..\/Library\/Developer\/Xcode\/DerivedData\/JobsityChallenge-eszrcaidfgwyiiaaoliaxgwokwtg\/SourcePackages\/checkouts\/SnapKit",
+    "65AAC195924FAE31D96F18D3CBB87B5DECFECC23" : "..\/..\/Library\/Developer\/Xcode\/DerivedData\/JobsityChallenge-eszrcaidfgwyiiaaoliaxgwokwtg\/SourcePackages\/checkouts\/SkeletonView",
+    "DCD729A52E05B74548562D710EA0E412FA5B3792" : "..\/..\/Library\/Developer\/Xcode\/DerivedData\/JobsityChallenge-eszrcaidfgwyiiaaoliaxgwokwtg\/SourcePackages\/checkouts\/AutoTableView"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "JobsityChallenge",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "JobsityChallenge.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/paulojosecb\/JobsityChallenge.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "19661074603F7C2937E503A5D98993E70EB164C8"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "\/Users\/paulo.barbosa\/Library\/Developer\/Xcode\/DerivedData\/JobsityChallenge-eszrcaidfgwyiiaaoliaxgwokwtg\/SourcePackages\/repositories\/SnapKit-4cdad746",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3AF18F9C6F5D633BAA0B3F935459E0C777C82047"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "\/Users\/paulo.barbosa\/Library\/Developer\/Xcode\/DerivedData\/JobsityChallenge-eszrcaidfgwyiiaaoliaxgwokwtg\/SourcePackages\/repositories\/SkeletonView-5c6244d7",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "65AAC195924FAE31D96F18D3CBB87B5DECFECC23"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "\/Users\/paulo.barbosa\/Library\/Developer\/Xcode\/DerivedData\/JobsityChallenge-eszrcaidfgwyiiaaoliaxgwokwtg\/SourcePackages\/repositories\/AutoTableView-b23848a5",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DCD729A52E05B74548562D710EA0E412FA5B3792"
+    }
+  ]
+}
