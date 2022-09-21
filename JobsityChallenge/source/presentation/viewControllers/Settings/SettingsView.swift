@@ -55,8 +55,6 @@ final class SettingsView: UIView, CodableView {
         stackView.alignment = .fill
         stackView.distribution = .fill
         stackView.spacing = 16
-        stackView.layoutMargins = Constants.edgeInsets
-        stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
     }()
     
@@ -78,8 +76,6 @@ final class SettingsView: UIView, CodableView {
         stackView.alignment = .fill
         stackView.distribution = .fill
         stackView.spacing = 16
-        stackView.layoutMargins = Constants.edgeInsets
-        stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
     }()
     

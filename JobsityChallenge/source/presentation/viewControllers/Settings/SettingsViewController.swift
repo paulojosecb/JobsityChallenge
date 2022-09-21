@@ -28,6 +28,8 @@ final class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.title = "Settings"
         self.view = settingsView
         settingsView.delegate = self
     }

@@ -11,29 +11,40 @@ import XCTest
 protocol SeriesDetailsPresenter {
     func fetchSeriesDetails(id: Int, completion: @escaping (Result<SeriesDetailsViewModel, Error>) -> ())
     func fetchEpisodesFrom(season: Int, completion: @escaping (Result<SeriesDetailsViewModel, Error>) -> ())
+    func toggleSerieAsFavorite(id: Int, completion: @escaping (Result<SeriesDetailsViewModel, Error>) -> ())
 }
 
 final class DefaultSeriesDetailsPresenter: SeriesDetailsPresenter {
-    
+
     let fetchSeriesUseCase: FetchEntityUseCase<Serie>
     let fetchSeasonsUseCase: FetchEntityUseCase<[Season]>
     let fetchEpisodesUseCase: FetchEntityUseCase<[Episode]>
+    let toggleSerieAsFavoriteUseCase: ToggleSerieAsFavoriteUseCase
+    
+    let localStorage: LocalStorage
 
-    var currentViewModel: SeriesDetailsViewModel = .init(sections: [], imageUrl: "", title: "", summary: "", genres: [], seasons: [])
+    var currentSerie: Serie?
+    var currentViewModel: SeriesDetailsViewModel = .init(sections: [], imageUrl: "", title: "", summary: "", genres: [], seasons: [], isFavorite: false)
     
     init(fetchSeriesUseCase: FetchEntityUseCase<Serie> = FetchEntityUseCase(),
-         fetchSeasonsUseCase: FetchEntityUseCase<[Season]> = FetchEntityUseCase(), fetchEpisodesUseCase: FetchEntityUseCase<[Episode]> = FetchEntityUseCase()) {
-        
+         fetchSeasonsUseCase: FetchEntityUseCase<[Season]> = FetchEntityUseCase(),
+         fetchEpisodesUseCase: FetchEntityUseCase<[Episode]> = FetchEntityUseCase(),
+         toggleSerieAsFavoriteUseCase: ToggleSerieAsFavoriteUseCase = ToggleSerieAsFavoriteUseCase(), localStorage: LocalStorage = DefaultLocalStorage()) {
         self.fetchSeriesUseCase = fetchSeriesUseCase
         self.fetchSeasonsUseCase = fetchSeasonsUseCase
         self.fetchEpisodesUseCase = fetchEpisodesUseCase
+        self.toggleSerieAsFavoriteUseCase = toggleSerieAsFavoriteUseCase
+        
+        self.localStorage = localStorage
     }
     
     func fetchSeriesDetails(id: Int, completion: @escaping (Result<SeriesDetailsViewModel, Error>) -> ()) {
         self.fetchSeriesUseCase.exec(request: .init(type: .serie(.byId(id)))) { result in
             switch result {
             case .success(let seriesResponse):
-        
+                
+                self.currentSerie = seriesResponse.entities
+                
                 self.fetchSeasonsUseCase.exec(request: .init(type: .season(.bySerie(id)))) { result in
                     switch result {
                     case .success(let seasonResponse):
@@ -65,6 +76,23 @@ final class DefaultSeriesDetailsPresenter: SeriesDetailsPresenter {
         }
     }
     
+    func toggleSerieAsFavorite(id: Int, completion: @escaping (Result<SeriesDetailsViewModel, Error>) -> ()) {
+        
+        guard let currentSerie = currentSerie else {
+            return
+        }
+        
+        self.toggleSerieAsFavoriteUseCase.exec(request: .init(serie: currentSerie)) { result in
+            switch result {
+            case .success(let response):
+                self.currentViewModel.isFavorite = response.isSaved
+                completion(.success(self.currentViewModel))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
     private func format(episodes: [Episode]) -> EpisodesSectionModel {
         let episodesRow = episodes.map { EpisodesRowModel(id: $0.id,
                                                           name: $0.name ?? "",
@@ -78,7 +106,8 @@ final class DefaultSeriesDetailsPresenter: SeriesDetailsPresenter {
                      title: serie.name ?? "",
                      summary: serie.summary ?? "",
                      genres: serie.genres ?? [],
-                     seasons: seasons)
+                     seasons: seasons,
+                     isFavorite: localStorage.isSerieFavorite(serie: serie))
     }
     
     

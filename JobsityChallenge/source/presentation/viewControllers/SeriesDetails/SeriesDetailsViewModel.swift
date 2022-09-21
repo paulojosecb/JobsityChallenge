@@ -31,6 +31,7 @@ struct SeriesDetailsViewModel: AutoTableViewModel {
     let summary: String
     let genres: [String]
     let seasons: [Season]
+    var isFavorite: Bool
     
     init(sections: [EpisodesSectionModel]) {
         self.sections = sections
@@ -40,9 +41,10 @@ struct SeriesDetailsViewModel: AutoTableViewModel {
         self.summary = ""
         self.genres = []
         self.seasons = []
+        self.isFavorite = false
     }
     
-    init(sections: [EpisodesSectionModel], imageUrl: String, title: String, summary: String, genres: [String], seasons: [Season]) {
+    init(sections: [EpisodesSectionModel], imageUrl: String, title: String, summary: String, genres: [String], seasons: [Season], isFavorite: Bool) {
         self.sections = sections
         
         self.imageUrl = imageUrl
@@ -50,5 +52,6 @@ struct SeriesDetailsViewModel: AutoTableViewModel {
         self.summary = summary
         self.genres = genres
         self.seasons = seasons
+        self.isFavorite = isFavorite
     }
 }

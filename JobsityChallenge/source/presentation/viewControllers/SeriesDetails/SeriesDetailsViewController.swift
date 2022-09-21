@@ -45,6 +45,7 @@ final class SeriesDetailsViewController: AutoListenableViewController<SeriesDeta
         
         self.add(listener: seriesDetailsView.tableView)
         self.seriesDetailsView.tableView.gestureHandler = self
+        self.seriesDetailsView.delegate = self
         
         self.presenter.fetchSeriesDetails(id: self.id) { result in
             switch result {
@@ -68,13 +69,17 @@ final class SeriesDetailsViewController: AutoListenableViewController<SeriesDeta
     private func fetchEpisodes(from seasonIndex: Int) {
         guard let id = self.viewModel?.seasons[seasonIndex].id else { return }
         self.presenter.fetchEpisodesFrom(season: id) { result in
-            switch result {
-            case .success(let viewModel):
-                self.viewModel = viewModel
-            case .failure(let error):
-                let errorAlertController = UIAlertController.createErrorAlertController(error, message: "An Error occurred while fetching series. Please try again")
-                self.present(errorAlertController, animated: true, completion: nil)
-            }
+            self.handle(result)
+        }
+    }
+    
+    private func handle(_ result: Result<SeriesDetailsViewModel, Error>) {
+        switch result {
+        case .success(let viewModel):
+            self.viewModel = viewModel
+        case .failure(let error):
+            let errorAlertController = UIAlertController.createErrorAlertController(error, message: "An Error occurred while fetching series. Please try again")
+            self.present(errorAlertController, animated: true, completion: nil)
         }
     }
 }
@@ -104,5 +109,13 @@ extension SeriesDetailsViewController: UIPickerViewDelegate, UIPickerViewDataSou
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.fetchEpisodes(from: row)
+    }
+}
+
+extension SeriesDetailsViewController: SeriesDetailsViewDelegate {
+    func didTapFavorite() {
+        self.presenter.toggleSerieAsFavorite(id: self.id) { result in
+            self.handle(result)
+        }
     }
 }

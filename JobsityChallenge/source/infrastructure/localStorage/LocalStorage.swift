@@ -17,6 +17,7 @@ protocol LocalStorage {
     func isTouchIDEnabled() -> Bool
     func setTouchIDEnabled(enable: Bool)
     func toggleOnFavorite(serie: Serie) throws -> Bool
+    func isSerieFavorite(serie: Serie) -> Bool
     func fetchFavorites(completion: @escaping (Result<[Serie], LocalStorageError>) -> ())
 }
 
@@ -67,21 +68,34 @@ final class DefaultLocalStorage: LocalStorage {
             
             return false
         } else {
-            series.append(serie)
-            userDefaults.set(serie, forKey: favoriteKey)
             
-            return true
+            series.append(serie)
+            
+            if let data = try? PropertyListEncoder().encode(series) {
+                userDefaults.set(data, forKey: favoriteKey)
+                return true
+            } else {
+                throw LocalStorageError.errorOnOperation
+            }
+                        
         }
     }
     
     func fetchFavorites(completion: @escaping (Result<[Serie], LocalStorageError>) -> ()) {
+        completion(.success(self.getSeriesFromUserDefaults()))
+    }
+    
+    func isSerieFavorite(serie: Serie) -> Bool {
+        return getSeriesFromUserDefaults().contains(serie)
+    }
+    
+    func getSeriesFromUserDefaults() -> [Serie] {
         guard let data = userDefaults.data(forKey: favoriteKey),
               let series = try? PropertyListDecoder().decode([Serie].self, from: data) else {
-                  completion(.success([]))
-                  return
+                  return []
         }
         
-        completion(.success(series))
+        return series
     }
     
     

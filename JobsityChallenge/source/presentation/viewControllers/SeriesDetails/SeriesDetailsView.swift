@@ -8,6 +8,10 @@
 import UIKit
 import AutoTableView
 
+protocol SeriesDetailsViewDelegate: NSObject {
+    func didTapFavorite()
+}
+
 final class SeriesDetailsView: UIView, CodableView {
     
     struct Constants {
@@ -21,6 +25,7 @@ final class SeriesDetailsView: UIView, CodableView {
             }
             
             self.imageView.downloaded(from: viewModel.imageUrl, contentMode: .scaleAspectFill)
+            self.favoriteImageView.image = viewModel.isFavorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
             self.titleLabel.text = viewModel.title
             self.summaryLabel.text = viewModel.summary.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
 
@@ -58,6 +63,23 @@ final class SeriesDetailsView: UIView, CodableView {
         return label
     }()
     
+    lazy var favoriteImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(systemName: "star")
+        imageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(didTapFavoriteImage)))
+        return imageView
+    }()
+    
+    lazy var titleStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 8
+        return stackView
+    }()
+    
     private lazy var genresStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -74,6 +96,7 @@ final class SeriesDetailsView: UIView, CodableView {
         label.font = .boldSystemFont(ofSize: 24)
         return label
     }()
+    
     lazy var summaryLabel: UILabel = {
         let label = UILabel()
         label.text = ""
@@ -100,6 +123,8 @@ final class SeriesDetailsView: UIView, CodableView {
         return tableView
     }()
     
+    weak var delegate: SeriesDetailsViewDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupViews()
@@ -110,9 +135,17 @@ final class SeriesDetailsView: UIView, CodableView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc func didTapFavoriteImage() {
+        self.delegate?.didTapFavorite()
+    }
+    
     func buildViews() {
+        
+        titleStackView.addArrangedSubview(titleLabel)
+        titleStackView.addArrangedSubview(favoriteImageView)
+        
         stackView.addArrangedSubview(imageView)
-        stackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(titleStackView)
         stackView.addArrangedSubview(genresStackView)
         stackView.addArrangedSubview(summaryTitleLabel)
         stackView.addArrangedSubview(summaryLabel)
@@ -132,6 +165,10 @@ final class SeriesDetailsView: UIView, CodableView {
         imageView.snp.makeConstraints { make in
             make.width.equalTo(200)
             make.height.equalTo(200*16/9)
+        }
+        
+        favoriteImageView.snp.makeConstraints { make in
+            make.size.equalTo(38)
         }
         
         genresStackView.snp.makeConstraints { make in

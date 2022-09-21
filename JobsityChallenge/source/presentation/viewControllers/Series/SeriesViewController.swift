@@ -18,7 +18,7 @@ class SeriesViewController: AutoListenableViewController<SeriesViewModel> {
     lazy var searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 200, height: 20))
 
     lazy var rightBarButton: UIBarButtonItem = {
-        let barButton = UIBarButtonItem(title: "Settings", image: nil, primaryAction: UIAction { _ in
+        let barButton = UIBarButtonItem(title: "Profile", image: nil, primaryAction: UIAction { _ in
             self.navigationController?.pushViewController(SettingsViewController(), animated: true)
         }, menu: nil)
         return barButton
@@ -54,6 +54,11 @@ class SeriesViewController: AutoListenableViewController<SeriesViewModel> {
         }
         
         self.setupNavBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         self.fetchTvShows()
     }
     
