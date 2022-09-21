@@ -35,7 +35,10 @@ class SeriesViewController: AutoListenableViewController<SeriesViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = seriesView
+        
         self.add(listener: seriesView.tableView)
+        self.seriesView.tableView.gestureHandler = self
+        
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.title = "Jobsity TV Shows"
         
@@ -84,5 +87,18 @@ extension SeriesViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.viewModel = self.presenter.generalResult
     }
+}
+
+extension SeriesViewController: AutoTableViewCellGestureHandler {
+    func didPressed(_ row: AutoTableViewRowModel) {
+        guard let row = row as? SeriesRowModel else {
+            return
+        }
+        
+        let viewController = SeriesDetailsViewController(id: row.id)
+        self.present(viewController, animated: true)
+    }
+    
+    
 }
 

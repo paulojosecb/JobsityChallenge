@@ -16,7 +16,9 @@ final class RouterFactory {
             return self.makeRouter(for: episodeRequest)
         case .person(let personRequest):
             return self.makeRouter(for: personRequest)
-        case .serie(let seasonRequest):
+        case .serie(let serieRequest):
+            return self.makeRouter(for: serieRequest)
+        case .season(let seasonRequest):
             return self.makeRouter(for: seasonRequest)
         }
     }
@@ -28,6 +30,8 @@ final class RouterFactory {
             return EpisodeRouter.fromSerie(id)
         case .byId(let id):
             return EpisodeRouter.byId(id)
+        case .fromSeason(let id):
+            return EpisodeRouter.fromSeason(id)
         }
         
     }
@@ -56,6 +60,17 @@ final class RouterFactory {
             return PersonRouter.byName(name)
         case .credits(let id):
             return PersonRouter.credits(id)
+        }
+        
+    }
+    
+    private static func makeRouter<T: Codable>(for requestType: FetchEntityUseCase<T>.SeasonRequestType) -> SeasonRouter? {
+        
+        switch requestType {
+        case .byId(let id):
+            return SeasonRouter.byId(id)
+        case .bySerie(let id):
+            return SeasonRouter.bySerie(id)
         }
         
     }

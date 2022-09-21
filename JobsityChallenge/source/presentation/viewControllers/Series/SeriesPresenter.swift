@@ -57,7 +57,8 @@ final class DefaultSeriesPresenter: SeriesPresenter {
     }
     
     private func format(series: [Serie]) -> SeriesViewModel {
-        let seriesRow = series.map { SeriesRowModel.init(imageURL: $0.image?.medium ?? "",
+        let seriesRow = series.map { SeriesRowModel.init(id: $0.id,
+                                                         imageURL: $0.image?.medium ?? "",
                                                          name: $0.name ?? "",
                                                          summary: $0.summary ?? "",
                                                          rating: $0.rating.average != nil ? "\($0.rating.average!)/10" : "Not rated",

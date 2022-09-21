@@ -9,32 +9,76 @@ import Foundation
 import XCTest
 
 protocol SeriesDetailsPresenter {
-    func fetchSeriesDetails(id: Int, completion: @escaping (Result<SeriesDetailsView.ViewModel, Error>) -> ())
+    func fetchSeriesDetails(id: Int, completion: @escaping (Result<SeriesDetailsViewModel, Error>) -> ())
+    func fetchEpisodesFrom(season: Int, completion: @escaping (Result<SeriesDetailsViewModel, Error>) -> ())
 }
 
 final class DefaultSeriesDetailsPresenter: SeriesDetailsPresenter {
     
-    let useCase: FetchEntityUseCase<Serie>
+    let fetchSeriesUseCase: FetchEntityUseCase<Serie>
+    let fetchSeasonsUseCase: FetchEntityUseCase<[Season]>
+    let fetchEpisodesUseCase: FetchEntityUseCase<[Episode]>
+
+    var currentViewModel: SeriesDetailsViewModel = .init(sections: [], imageUrl: "", title: "", summary: "", genres: [], seasons: [])
     
-    init(useCase: FetchEntityUseCase<Serie> = FetchEntityUseCase()) {
-        self.useCase = useCase
+    init(fetchSeriesUseCase: FetchEntityUseCase<Serie> = FetchEntityUseCase(),
+         fetchSeasonsUseCase: FetchEntityUseCase<[Season]> = FetchEntityUseCase(), fetchEpisodesUseCase: FetchEntityUseCase<[Episode]> = FetchEntityUseCase()) {
+        
+        self.fetchSeriesUseCase = fetchSeriesUseCase
+        self.fetchSeasonsUseCase = fetchSeasonsUseCase
+        self.fetchEpisodesUseCase = fetchEpisodesUseCase
     }
     
-    func fetchSeriesDetails(id: Int, completion: @escaping (Result<SeriesDetailsView.ViewModel, Error>) -> ()) {
-        self.useCase.exec(request: .init(type: .serie(.byId(id)))) { result in
+    func fetchSeriesDetails(id: Int, completion: @escaping (Result<SeriesDetailsViewModel, Error>) -> ()) {
+        self.fetchSeriesUseCase.exec(request: .init(type: .serie(.byId(id)))) { result in
             switch result {
-            case .success(let response):
-                completion(.success(self.format(serie: response.entities)))
+            case .success(let seriesResponse):
+        
+                self.fetchSeasonsUseCase.exec(request: .init(type: .season(.bySerie(id)))) { result in
+                    switch result {
+                    case .success(let seasonResponse):
+                        
+                        self.currentViewModel = self.format(serie: seriesResponse.entities,
+                                                            seasons: seasonResponse.entities)
+                        completion(.success(self.currentViewModel))
+                        
+                    case .failure(let error):
+                        completion(.failure(error))
+                    }
+                }
+                
             case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
     
-    private func format(serie: Serie) -> SeriesDetailsView.ViewModel {
-        return .init(imageUrl: serie.image?.original ?? "",
+    func fetchEpisodesFrom(season: Int, completion: @escaping (Result<SeriesDetailsViewModel, Error>) -> ()) {
+        self.fetchEpisodesUseCase.exec(request: .init(type: .episode(.fromSeason(season)))) { result in
+            switch result {
+            case .success(let response):
+                self.currentViewModel.sections = [self.format(episodes: response.entities)]
+                completion(.success(self.currentViewModel))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    private func format(episodes: [Episode]) -> EpisodesSectionModel {
+        let episodesRow = episodes.map { EpisodesRowModel(id: $0.id,
+                                                          name: $0.name ?? "",
+                                                          order: $0.number ?? 1)}
+        return .init(header: nil, rows: episodesRow)
+    }
+    
+    private func format(serie: Serie, seasons: [Season]) -> SeriesDetailsViewModel {
+        return .init(sections: [],
+                     imageUrl: serie.image?.original ?? "",
                      title: serie.name ?? "",
-                     summary: serie.summary ?? "")
+                     summary: serie.summary ?? "",
+                     genres: serie.genres ?? [],
+                     seasons: seasons)
     }
     
     

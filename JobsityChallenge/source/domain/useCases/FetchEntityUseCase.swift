@@ -31,6 +31,7 @@ final class FetchEntityUseCase<T: Codable>: UseCase {
         case serie(SerieRequestType)
         case episode(EpisodeRequestType)
         case person(PersonRequestType)
+        case season(SeasonRequestType)
     }
     
     enum SerieRequestType {
@@ -42,6 +43,7 @@ final class FetchEntityUseCase<T: Codable>: UseCase {
     
     enum EpisodeRequestType {
         case byId(Int)
+        case fromSeason(Int)
         case fromSerie(Int)
     }
     
@@ -49,6 +51,11 @@ final class FetchEntityUseCase<T: Codable>: UseCase {
         case byName(String)
         case byId(Int)
         case credits(Int)
+    }
+    
+    enum SeasonRequestType {
+        case byId(Int)
+        case bySerie(Int)
     }
     
     struct Request {

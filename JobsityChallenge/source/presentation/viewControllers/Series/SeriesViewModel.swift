@@ -9,6 +9,7 @@ import Foundation
 import AutoTableView
 
 struct SeriesRowModel: AutoTableViewRowModel {
+    let id: Int
     let imageURL: String
     let name: String
     let summary: String

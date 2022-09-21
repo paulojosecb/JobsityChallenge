@@ -1,5 +1,5 @@
 //
-//  EpisodeRouter.swift
+//  SeasonRouter.swift
 //  JobsityChallenge
 //
 //  Created by Paulo Barbosa on 20/09/22.
@@ -7,10 +7,9 @@
 
 import Foundation
 
-internal enum EpisodeRouter: Router {
+internal enum SeasonRouter: Router {
     case byId(Int)
-    case fromSeason(Int)
-    case fromSerie(Int)
+    case bySerie(Int)
 
     internal static let baseUrl = "https://api.tvmaze.com/"
 
@@ -24,11 +23,9 @@ internal enum EpisodeRouter: Router {
     fileprivate var path: String {
         switch self {
         case .byId(let id):
-            return "episodes/\(id)"
-        case .fromSeason(let id):
-            return "seasons/\(id)/episodes"
-        case .fromSerie(let id):
-            return "shows/\(id)/episodes"
+            return "seasons/\(id)"
+        case .bySerie(let id):
+            return "shows/\(id)/seasons"
         }
     }
     
@@ -40,7 +37,7 @@ internal enum EpisodeRouter: Router {
     }
     
     internal func asURLRequest() -> URLRequest? {
-        guard let url = URL(string: EpisodeRouter.baseUrl)?.appending(queryItems) else {
+        guard let url = URL(string: PersonRouter.baseUrl)?.appending(queryItems) else {
             return nil
         }
         
