@@ -30,6 +30,8 @@ final class SeriesDetailsView: UIView, CodableView {
             self.imageView.downloaded(from: viewModel.imageUrl, contentMode: .scaleAspectFill)
             self.favoriteImageView.image = viewModel.isFavorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
             self.titleLabel.text = viewModel.title
+            self.airsTimeLabel.text = viewModel.schedule?.time ?? ""
+            self.airsDaysLabel.text = viewModel.schedule?.days?.joined(separator: ", ") ?? ""
             self.summaryLabel.text = viewModel.summary.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
 
             self.populate(stackView: genresStackView, with: viewModel.genres)
@@ -88,8 +90,41 @@ final class SeriesDetailsView: UIView, CodableView {
         return stackView
     }()
     
+    lazy var airsStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.isSkeletonable = true
+        stackView.axis = .vertical
+        stackView.spacing = 4
+        return stackView
+    }()
+    
+    lazy var airsTitleLabel: UILabel = {
+        let label = UILabel()
+        label.isSkeletonable = true
+        label.text = "Goes live at: "
+        label.font = .boldSystemFont(ofSize: 18)
+        return label
+    }()
+    
+    lazy var airsTimeLabel: UILabel = {
+        let label = UILabel()
+        label.isSkeletonable = true
+        label.text = ""
+        label.font = .systemFont(ofSize: 16)
+        return label
+    }()
+    
+    lazy var airsDaysLabel: UILabel = {
+        let label = UILabel()
+        label.isSkeletonable = true
+        label.text = ""
+        label.font = .systemFont(ofSize: 16)
+        return label
+    }()
+    
     private lazy var genresStackView: UIStackView = {
         let stackView = UIStackView()
+        stackView.isSkeletonable = true
         stackView.axis = .horizontal
         stackView.spacing = 4
         stackView.alignment = .leading
@@ -156,8 +191,13 @@ final class SeriesDetailsView: UIView, CodableView {
         titleStackView.addArrangedSubview(titleLabel)
         titleStackView.addArrangedSubview(favoriteImageView)
         
+        airsStackView.addArrangedSubview(airsTitleLabel)
+        airsStackView.addArrangedSubview(airsTimeLabel)
+        airsStackView.addArrangedSubview(airsDaysLabel)
+        
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(titleStackView)
+        stackView.addArrangedSubview(airsStackView)
         stackView.addArrangedSubview(genresStackView)
         stackView.addArrangedSubview(summaryTitleLabel)
         stackView.addArrangedSubview(summaryLabel)

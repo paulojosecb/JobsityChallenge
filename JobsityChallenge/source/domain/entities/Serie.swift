@@ -20,6 +20,7 @@ struct Serie: Entity, Codable, Equatable {
     let rating: Rating
     let image: Image?
     let summary: String?
+    let schedule: Schedule?
     
     static func == (lhs: Serie, rhs: Serie) -> Bool {
         return lhs.id == rhs.id
@@ -29,5 +30,10 @@ struct Serie: Entity, Codable, Equatable {
 struct Image: Codable {
     let medium: String?
     let original: String?
+}
+
+struct Schedule: Codable {
+    let time: String?
+    let days: [String]?
 }
 

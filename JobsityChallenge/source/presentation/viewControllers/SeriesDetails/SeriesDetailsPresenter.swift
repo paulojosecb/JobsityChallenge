@@ -107,6 +107,7 @@ final class DefaultSeriesDetailsPresenter: SeriesDetailsPresenter {
                      summary: serie.summary ?? "",
                      genres: serie.genres ?? [],
                      seasons: seasons,
+                     schedule: serie.schedule,
                      isFavorite: localStorage.isSerieFavorite(serie: serie))
     }
     

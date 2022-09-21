@@ -21,6 +21,15 @@ final class SeriesView: UIView, CodableView {
         return tableView
     }()
     
+    lazy var emptyStateLabel: UILabel = {
+        let label = UILabel()
+        label.text = "You haven't favorited any TV Shows yet :("
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        label.font = .boldSystemFont(ofSize: 16)
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupViews()
@@ -34,11 +43,17 @@ final class SeriesView: UIView, CodableView {
     
     func buildViews() {
         self.addSubview(tableView)
+        self.addSubview(emptyStateLabel)
+        emptyStateLabel.isHidden = true
     }
     
     func configConstraints() {
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+        
+        emptyStateLabel.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(Constants.edgeInsets)
         }
     }
     

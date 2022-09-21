@@ -39,6 +39,12 @@ class SeriesViewController: AutoListenableViewController<SeriesViewModel> {
         didSet {
             guard let viewModel = viewModel else { return }
             self.updateAutoTableViews(with: viewModel)
+            
+            if (viewModel.sections.first?.rows.isEmpty ?? false) && isFavoriteSeriesView {
+                self.seriesView.emptyStateLabel.isHidden = false
+            } else {
+                self.seriesView.emptyStateLabel.isHidden = true
+            }
         }
     }
     
@@ -140,7 +146,8 @@ extension SeriesViewController: AutoTableViewCellGestureHandler {
         }
         
         let viewController = SeriesDetailsViewController(id: row.id)
-        self.present(viewController, animated: true)
+        viewController.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     
